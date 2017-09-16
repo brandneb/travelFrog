@@ -157,7 +157,7 @@ function refreshWeatherData() {
             closeButton: false,
             autoClose: false,
             closeOnClick: false
-        }).setLatLng([spot.lat, spot.long]).setContent(item[0]);
+        }).setLatLng([spot.lat, spot.lon]).setContent(item[0]);
         
         item.click(function () {
             var expanded = $(this).parents('.leaflet-popup').hasClass('expanded');
@@ -190,7 +190,7 @@ if (navigator.geolocation) {
         console.log("get", url);
         var req = $.get(url, function (data, status, xhr) {
             console.log("got");
-            weatherSpots = data.results;
+            weatherSpots = data;
             refreshWeatherData();
         });
         req.fail(function () {

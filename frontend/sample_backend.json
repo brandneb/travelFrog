@@ -1,32 +1,30 @@
+[
 {
-    "results": [
-        {
-            "lat": 48.125042,
-            "long": 11.568607,
-            "avg_temperature": 23,
-            "temperature": [23, 22],
-            "feelslike": [25, 20],
-            "wind": [5, 15],
-            "forecast": ["Sunny", "Cloudy"],
-            "icon_code": [26, 23],
-            "activity": "beach",
-            "name": "Munich",
-            "href": "https://giphy.com",
-            "price": 535
-        },
-        {
-            "lat": 47.367813, 
-            "long": 11.429600,
-            "avg_temperature": 16,
-            "temperature": [15, 17],
-            "feelslike": [13, 15],
-            "wind": [5, 3],
-            "forecast": ["Partly Cloudy", "Snow"],
-            "icon_code": [3, 15],
-            "activity": "surfing",
-            "name": "Scharnitz",
-            "href": "https://giphy.com",
-            "price": 535
-        }
-    ]
+    "lat": 48.125042,
+    "lon": 11.568607,
+    "avg_temperature": 23,
+    "temperature": [23, 22],
+    "feelslike": [25, 20],
+    "wind": [5, 15],
+    "forecast": ["Sunny", "Cloudy"],
+    "icon_code": [26, 23],
+    "activity": "beach",
+    "name": "Munich",
+    "href": "https://giphy.com",
+    "price": 535
+},
+{
+    "lat": 47.367813, 
+    "lon": 11.429600,
+    "avg_temperature": 16,
+    "temperature": [15, 17],
+    "feelslike": [13, 15],
+    "wind": [5, 3],
+    "forecast": ["Partly Cloudy", "Snow"],
+    "icon_code": [3, 15],
+    "activity": "surfing",
+    "name": "Scharnitz",
+    "href": "https://giphy.com",
+    "price": 535
 }
+]
