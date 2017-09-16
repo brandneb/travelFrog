@@ -59,7 +59,10 @@ async def destinations(request: web.Request):
         }
         result_json.append(entry)
 
-    return web.json_response(result_json)
+    resp = web.json_response(result_json)
+    if 'origin' in request.headers:
+        resp.headers['Access-Control-Allow-Origin'] = request.headers['origin']
+    return resp
 
 
 def setup_routes(app):

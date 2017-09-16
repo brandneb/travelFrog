@@ -10,15 +10,6 @@ $(document).ready(function() {
         id: 'mapbox.streets',
         accessToken: 'pk.eyJ1IjoiYnJhbmRuZXJiIiwiYSI6ImNpdTQzYWZqNjAwMjQyeXFqOWR2a2tnZ2MifQ.LrcRwH1Vm-JsYR1zBb0Q9Q'
     }).addTo(map);
-    
-    console.log("get");
-    $.get('/sample_backend.json', function (data, status, xhr) {
-        console.log("got");
-        weatherSpots = data.results;
-        refreshWeatherData();
-    }).fail(function () {
-        console.log("cannot get backend data");
-    });
 });
 
 function recenter() {
@@ -80,8 +71,8 @@ function refreshWeatherData() {
                 </div>
             </div>
             <div class="skyscanner">
-                <span class="detail-price space-after">%price with Ryanair</span>
-                <a class="waves-effect waves-light btn grey lighten-1" href="%offerlink" target="_blank"><i class="material-icons left">send</i></a>
+                <!--<span class="detail-price space-after">%price with Ryanair</span>-->
+                <a class="waves-effect waves-light btn grey lighten-1" href="%offerlink" target="_blank">Book for %price with Ryanair</a>
             </div>
             <div class="skyscanner">
                 <span class="detail-price space-after">Risk level. Safe travels</span>
@@ -194,5 +185,16 @@ if (navigator.geolocation) {
         } else {
             mustCenter = true;
         }
+
+        var url = `${window.location.protocol}//${window.location.hostname}:30889/destinations?lat=${center[0]}&lon=${center[1]}`;
+        console.log("get", url);
+        var req = $.get(url, function (data, status, xhr) {
+            console.log("got");
+            weatherSpots = data.results;
+            refreshWeatherData();
+        });
+        req.fail(function () {
+            console.log("cannot get backend data", req.statusText);
+        });
     });
 }
