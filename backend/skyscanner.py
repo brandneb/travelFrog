@@ -92,7 +92,7 @@ async def _get_referral_url(from_id, to_id):
             return resp.headers['Location']
 
 
-async def get_destinations(from_city, to, num_destinations, with_url):
+async def get_destinations(from_city, to, num_destinations, with_url=True):
     from_id = await _suggest_id(from_city)
 
     if to.lower() in CONTINENTS_COUNTRIES_MAP:
