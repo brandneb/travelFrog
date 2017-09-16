@@ -71,7 +71,8 @@ function refreshWeatherData() {
                 </div>
             </div>
             <div class="skyscanner">
-                <a class="waves-effect waves-light btn grey lighten-1" href="%offerlink" target="_blank">Book for %price</a>
+                <a class="waves-effect waves-light btn teal lighten-3" href="%offerlink" target="_blank">
+                <span class="detail-price">book for %price</span></a>
             </div>
             <div class="skyscanner">
                 <span class="detail-risk">Risk level: Safe travels, do you need &nbsp<a class="teal-text lighten-3" href="%offerlink" target="_blank"> insurance?</a>
