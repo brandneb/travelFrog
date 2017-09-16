@@ -100,12 +100,19 @@ function refreshWeatherData() {
         return base;
     }
 
+    function weather_image(forecast){
+        switch(forecast){
+            case "Sunny": return 'rain_frog.png';
+            default: return 'frog.png';
+        }
+    }
+
     weatherSpots.forEach(function(spot) {
         var props = {
             name: spot.name,
             avgtemp: spot.avg_temperature + '°C',
             price: spot.price + "€",
-            image: 'frog.png',
+            image: weather_image(spot.forecast),
             forecasts: '',
             temps: '',
             wind: '',

@@ -1,9 +1,10 @@
 .fill {
-    display: flex;
-    flex-flow: column nowrap;
+	display: flex;
+	flex-flow: column nowrap;
 }
 
 .fill .grow {
+	max-height: 90%;
     display: flex;
     flex: 1 0 100px;
 }
@@ -11,7 +12,7 @@
 .htmlmarker {
     display: flex;
     justify-content: center;
-    flex-flow: row nowrap;
+	flex-flow: row nowrap;
 }
 
 .leaflet-popup .leaflet-popup-content {
@@ -48,6 +49,7 @@ table.tight td, th {
 }
 
 .condensed {
+	font-family: Roboto;
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
