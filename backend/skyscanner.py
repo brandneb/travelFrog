@@ -6,7 +6,7 @@ import json
 
 import itertools
 
-from backend.settings import settings
+from settings import settings
 
 API_KEY = settings['skyscanner_api_key']
 

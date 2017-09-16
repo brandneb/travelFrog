@@ -9,6 +9,7 @@ from pprint import pprint, pformat
 
 
 async def destinations(request: web.Request):
+    print("got request")
     params = request.rel_url.query
     print(f'URL params:\n{pformat(params)}')
     lat = float(params['lat'])
@@ -39,6 +40,7 @@ async def destinations(request: web.Request):
         feels_like = [d["wc"] for d in days]
         wind = [d["wspd"] for d in days]
         phrase = [d["phrase_32char"] for d in days]
+        icon_code = [d["icon_code"] for d in days]
 
         entry = {
             'lat': coords[0],
@@ -48,6 +50,7 @@ async def destinations(request: web.Request):
             "temperature": day_temps,
             "feelslike": feels_like,
             "wind": wind,
+            "icon_code": icon_code,
             "forecast": phrase,
             "activity": "a beach day",
             "name": destination['destination']['CityName'],

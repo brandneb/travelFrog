@@ -15,16 +15,33 @@
 	flex-flow: row nowrap;
 }
 
-/* .leaflet-popup.expanded .leaflet-popup-content {
-    width: 500px !important;
-} */
 .leaflet-popup .leaflet-popup-content {
-    width: auto !important;
-    min-width: 200px;
+    width: 80px !important;
+    height: 50px;
+} 
+.leaflet-popup.expanded .leaflet-popup-content {
+    width: 350px !important;
+    height: 257px;
 } 
 
 .leaflet-popup.expanded .leaflet-popup-tip-container {
-    left: 100px !important;
+    left: 47px !important;
+}
+
+.space-after {
+    margin-right: 5px;
+}
+
+table.equal td, th {
+    width: 18.66%;
+}
+
+table.equal tbody tr {
+    height: 50px;
+}
+
+table.tight td, th {
+    padding: 5px 5px;
 }
 
 .htmlmarker>* {
@@ -34,7 +51,7 @@
 .condensed {
 	font-family: Roboto;
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: row nowrap;
     justify-content: center;
 }
 
@@ -42,17 +59,79 @@
     display: flex;
 }
 
+.temperature, .price {
+    font-weight: bolder;
+    font-size: 110%;
+}
+
+.leaflet-popup.expanded .detailed {
+    display: flex;
+}
+
 .detailed {
     display: none;
+    flex-flow: column nowrap;
+}
+
+.detailed>div {
+    display: flex;
+    
+}
+
+.toprow {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.toprow>* {
+    display: flex;
 }
 
 .frog {
     align-self: center;
-    width: 75px;
-	height: auto;
-	margin-right: 5px;
-	margin-left: 0;
+    width: 50px;
+    height: 50px;
     object-fit: contain;
+}
+
+.frog.big {
+    width: 80px;
+    height: 80px;
+}
+
+.toprowdetails {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.toprowdetails>* {
+    display: flex;
+}
+
+.recommendation {
+    margin: 5px 0;
+}
+
+.toprowdetails>div {
+    margin-left: 5px;
+}
+
+.skyscanner {
+    display: flex;
+    flex-flow: row nowrap;
+    /* flex: 1 0 auto; */
+    /* justify-content: center; */
+}
+
+.skyscanner>*{
+    display: flex;
+    align-self: center;
+}
+
+.info {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
 }
 
 .leaflet-popup-content {
@@ -93,6 +172,10 @@
 	margin: 5px;
 	padding: 10px;
 	border-radius: 5px;
+}
+
+#fixthis {
+    vertical-align: text-bottom;
 }
 
 .logo{

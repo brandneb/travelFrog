@@ -2,7 +2,7 @@ import aiohttp
 import asyncio
 from itertools import islice
 
-from backend.settings import settings
+from settings import settings
 
 API_KEY = settings['bluemix_api_key']
 
