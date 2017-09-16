@@ -6,9 +6,11 @@ import json
 
 import itertools
 
-from settings import settings
+import configparser
 
-API_KEY = settings['skyscanner_api_key']
+config = configparser.ConfigParser()
+config.read('settings.ini')
+API_KEY = config['DEFAULT']['SkyscannerAPIKey']
 
 ROUTES_URL = "http://partners.api.skyscanner.net/apiservices/browseroutes/v1.0/GE/CHF/EN/{0}/{1}/anytime/anytime?apiKey={2}"
 DATES_URL = "http://partners.api.skyscanner.net/apiservices/browsedates/v1.0/GE/CHF/EN/{0}/{1}/anytime/anytime?apiKey={2}"

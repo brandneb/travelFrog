@@ -1,10 +1,13 @@
 import aiohttp
 import asyncio
 from itertools import islice
+import configparser
 
-from settings import settings
-
-API_KEY = settings['bluemix_api_key']
+config = configparser.ConfigParser()
+config.read('settings.ini')
+API_KEY = config['DEFAULT']['BluemixAPIKey']
+REFRESH_INTERVAL = config.getint('DEFAULT', 'WeatherRefreshInterval')
+PARALLEL_REQUESTS = config.getint('DEFAULT', 'WeatherParallelRequests')
 
 _weather_map = {}
 
@@ -27,7 +30,7 @@ async def _get_weather_at(lat, lon, session):
 async def _get_weather_map(session):
     global _weather_map
     print(f"refreshing weather cache for {len(_weather_map)} locations")
-    for coords in _key_chunks(_weather_map, settings['weather_parallel_requests']):
+    for coords in _key_chunks(_weather_map, PARALLEL_REQUESTS):
         requests = map(lambda coord: _get_weather_at(coord[0], coord[1], session), coords)
         responses = await asyncio.gather(*requests)
         _weather_map.update(dict(zip(coords, responses)))
@@ -38,7 +41,7 @@ async def run_weather_cache():
     async with aiohttp.ClientSession() as session:
         while asyncio.get_event_loop().is_running():
             await _get_weather_map(session)
-            await asyncio.sleep(settings['weather_refresh_interval_s'])
+            await asyncio.sleep(REFRESH_INTERVAL)
 
 
 async def get_weather(lat, lon):
