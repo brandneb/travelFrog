@@ -1,6 +1,4 @@
-import aiohttp
-
-from backend.client.settings import settings
+from backend.settings import settings
 
 API_KEY = settings['skyscanner_api_key']
 
