@@ -22,6 +22,7 @@ async def get_url(url, session):
     async with session.get(url) as resp:
         return await resp.json()
 
+
 async def _get_cheapest_places_from_place_to_countries(from_city, to_countries, num_places):
     urls = map(lambda country: ROUTES_URL.format(from_city, country, API_KEY), to_countries)
 
@@ -30,7 +31,8 @@ async def _get_cheapest_places_from_place_to_countries(from_city, to_countries, 
         for url in urls:
             responses.append(get_url(url, session))
         responses = await asyncio.gather(*responses)
-        cheapest_places_per_country = [_parse_routes_for_cheapest_destinations(response, num_places) for response in responses]
+        cheapest_places_per_country = [_parse_routes_for_cheapest_destinations(response, num_places) for response in
+                                       responses]
         cheapest_places = list(itertools.chain.from_iterable(cheapest_places_per_country))
         cheapest_places.sort(key=lambda x: x['price'])
         cheapest_places = cheapest_places[:num_places]
@@ -49,11 +51,8 @@ async def _suggest_id(query):
     url = SUGGEST_URL.format(query, API_KEY)
     async with aiohttp.ClientSession() as session:
         async with session.get(url) as resp:
-            print(resp.status)
             response_dict = await resp.json()
-            print(response_dict)
             return response_dict['Places'][0]['PlaceId']
-
 
 
 def _parse_routes_for_cheapest_destinations(route_results, num_results):
@@ -71,10 +70,18 @@ def _parse_routes_for_cheapest_destinations(route_results, num_results):
 
     return cheapest_places
 
+
 def _place_for_id(destination_id, all_places):
     for place in all_places:
         if destination_id == place['PlaceId']:
             return place
+
+
+async def _get_referral_url(from_id, to_id):
+    url = REFERRAL_URL.format(from_id, to_id, API_KEY)
+    async with aiohttp.ClientSession() as session:
+        async with session.get(url, allow_redirects=False) as resp:
+            return resp.headers['Location']
 
 
 async def get_destinations(from_city, to, num_destinations):
@@ -88,8 +95,17 @@ async def get_destinations(from_city, to, num_destinations):
         return await _get_cheapest_places_from_place_to_country(from_id, to_id, num_destinations)
 
 
+async def get_booking_url(from_city, to_city):
+    from_id = await _suggest_id(from_city)
+    to_id = await _suggest_id(to_city)
+
+    return await _get_referral_url(from_id, to_id)
+
+
 if __name__ == '__main__':
     loop = asyncio.get_event_loop()
 
+    booking_url = loop.run_until_complete(get_booking_url("Zurich", "London"))
+    print(booking_url)
     cheapest_places = loop.run_until_complete(get_destinations("Zurich", "Europe", 10))
     pprint(cheapest_places)
