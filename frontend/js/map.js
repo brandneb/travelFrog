@@ -39,6 +39,26 @@ function recenter() {
     }
 }
 
+function activityTitle(spot) {
+    var activity = spot.activity;
+    var location = spot.name;
+
+    var activityTitles = {
+        'surfing': 'Go surfing around', 
+        'beach': 'Enjoy the sunshine in', 
+        'culture': 'Explore', 
+        'camping': 'Set up a tent in', 
+        'hiking': 'Hike around',
+        'skiing': 'Ski down towards'
+    }
+
+    if(activity in activityTitles) {
+        return activityTitles[activity] + ' ' + location;
+    }
+
+    return 'Visit ' + location;
+}
+
 var weatherSpots = [];
 
 function refreshWeatherData() {
@@ -46,7 +66,7 @@ function refreshWeatherData() {
     const html = `
     <div class="htmlmarker">
         <div class="condensed">
-            <img class="frog" src="/img/%image"/>
+            <img class="frog" src="/assets/%image"/>
             <div class="info">
                 <div class="temperature">%avgtemp</div>
                 <div class="price">%price</div>
@@ -54,14 +74,18 @@ function refreshWeatherData() {
         </div>
         <div class="detailed">
             <div class="toprow">
-                <img class="frog big" src="/img/%image"/>
+                <img class="frog big" src="/assets/%image"/>
                 <div class="toprowdetails">
                     <h5 class="recommendation">%recommend</h5>
-                    <div class="skyscanner">
-                        <span class="price space-after">%price</span>
-                        <a class="waves-effect waves-light btn grey lighten-1" href="%offerlink" target="_blank">book</a>
-                    </div>
                 </div>
+            </div>
+            <div class="skyscanner">
+                <span class="detail-price space-after">%price with Ryanair</span>
+                <a class="waves-effect waves-light btn grey lighten-1" href="%offerlink" target="_blank"><i class="material-icons left">send</i></a>
+            </div>
+            <div class="skyscanner">
+                <span class="detail-price space-after">Risk level. Safe travels</span>
+                <a class="waves-effect waves-light btn grey lighten-1" href="%offerlink" target="_blank">Insure</a>
             </div>
             <table class="tight equal centered">
                 <thead>
@@ -100,11 +124,12 @@ function refreshWeatherData() {
         return base;
     }
 
-    function weather_image(forecast){
-        switch(forecast){
-            case "Sunny": return 'rain_frog.png';
-            default: return 'frog.png';
+    function weather_image(activity){
+        var things = [ "surfing", "beach", "culture", "camping", "hiking", "skiing"];
+        if(things.indexOf(activity.toLowerCase()) != -1) {
+            return `${activity.toLowerCase()}_frog.png`;
         }
+        return 'frog.png'
     }
 
     weatherSpots.forEach(function(spot) {
@@ -112,11 +137,11 @@ function refreshWeatherData() {
             name: spot.name,
             avgtemp: spot.avg_temperature + '°C',
             price: spot.price + " CHF",
-            image: weather_image(spot.forecast),
+            image: weather_image(spot.activity),
             forecasts: '',
             temps: '',
             wind: '',
-            recommend: spot.activity,
+            recommend: activityTitle(spot),
             offerlink: spot.href
         }
 
@@ -171,95 +196,3 @@ if (navigator.geolocation) {
         }
     });
 }
-
-
-
-// var mustCenter = false;
-// var mustRefreshMarkers = false;
-
-// var centerMarker = null;
-// var userLocationGraphic;
-// require([
-//     "esri/map",
-//     "dojo/on",
-//     "esri/geometry/Extent",
-//     "esri/layers/FeatureLayer",
-//     "esri/graphic",
-//     "esri/symbols/SimpleLineSymbol",
-//     "esri/symbols/SimpleFillSymbol",
-//     "esri/symbols/SimpleMarkerSymbol",
-//     "esri/symbols/PictureMarkerSymbol",
-//     "esri/symbols/TextSymbol",
-//     "esri/renderers/SimpleRenderer",
-//     "esri/layers/LabelClass",
-//     "esri/geometry/Point",
-//     "esri/SpatialReference",
-//     "dojo/_base/Color",
-//     "dojo/domReady!"
-// ], function (Map, on, Extent, FeatureLayer, Graphic, SimpleLineSymbol, SimpleFillSymbol, SimpleMarkerSymbol, PictureMarkerSymbol,
-//     TextSymbol, SimpleRenderer, LabelClass, Point, SpatialReference, Color) {
-//         if (navigator.geolocation) {
-//             navigator.geolocation.getCurrentPosition(function (pos) {
-//                 center = [pos.coords.longitude, pos.coords.latitude];
-//                 if (map) {
-//                     recenter();
-//                 } else {
-//                     mustCenter = true;
-//                 }
-//             });
-//         }
-
-//         function refreshMarkers() {
-//             var zoom = map.getZoom();
-//             if (zoom == -1) {
-//                 zoom = 9;
-//             }
-//             console.log("zoom ->", zoom);
-//             var markerSize = (zoom - 9.0) * 10;
-//             markerSize = Math.min(40, Math.max(20, markerSize)); // clamp
-
-//             var symbol = new PictureMarkerSymbol("../img/marker.svg", markerSize, markerSize);
-//             userLocationGraphic.setSymbol(symbol);
-//             userLocationGraphic.setGeometry(new Point(center[0], center[1]));
-//             userLocationGraphic.draw();
-//         }
-
-//         function recenter() {
-//             console.log("recenter");
-//             map.centerAt(center);
-
-//             refreshMarkers();
-//         }
-
-//         map = new Map("map", {
-//             basemap: "topo",
-//             center: center,
-//             zoom: 9,
-//             minZoom: 3,
-//             showLabels: true,
-//             showAttribution: false
-//         });
-
-//         userLocationGraphic = new Graphic();
-//         on.once(map, "load", function () {
-//             // $('#map_root').css({width: '100%', height: '100%'});
-//             this.graphics.add(userLocationGraphic);
-//             if (mustCenter) {
-//                 setTimeout(function () {
-//                     mustCenter = false;
-//                     recenter();
-//                 }, 500);
-//             }
-//         });
-//         on(map, "zoom-end", function (anchor, extent, level, zoom) {
-//             refreshMarkers();
-//         });
-//         on(map, "extent-change", function() {
-//             refreshWeatherData();
-//         });
-
-
-        
-
-        
-//     });

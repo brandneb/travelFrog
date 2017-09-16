@@ -9,7 +9,7 @@
             "wind": [5, 15],
             "forecast": ["Sunny", "Cloudy"],
             "icon_code": [26, 23],
-            "activity": "Perfect beach day",
+            "activity": "beach",
             "name": "Munich",
             "href": "https://giphy.com",
             "price": 535
@@ -23,7 +23,7 @@
             "wind": [5, 3],
             "forecast": ["Partly Cloudy", "Snow"],
             "icon_code": [3, 15],
-            "activity": "Good hiking conditions",
+            "activity": "surfing",
             "name": "Scharnitz",
             "href": "https://giphy.com",
             "price": 535
