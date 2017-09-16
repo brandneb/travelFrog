@@ -8,6 +8,10 @@
     flex: 1 0 100px;
 }
 
+.htmlmarker {
+    border: 1px solid red;
+}
+
 .img-container{
 	background-image: url("../assets/travel.jpg");
 	background-repeat: no-repeat;
