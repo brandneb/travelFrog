@@ -5,9 +5,7 @@ from backend.settings import settings
 
 API_KEY = settings['bluemix_api_key']
 
-_weather = []
-_activity_weather = {}
-_locations = {}
+_weather = {}
 
 
 def _chunks(list, chunk_len):
@@ -31,10 +29,6 @@ async def _init_location(lat, lon):
         _weather.append(await _get_weather_at(lat, lon, session))
 
 
-async def _extract_activity_weather():
-    pass
-
-
 async def _get_weather_all_locations(session):
     global _weather
     _weather = []
@@ -49,16 +43,13 @@ async def run_weather_cache():
     async with aiohttp.ClientSession() as session:
         while asyncio.get_event_loop().is_running():
             await _get_weather_all_locations(session)
-            await _extract_activity_weather()
             await asyncio.sleep(settings['weather_refresh_interval_s'])
 
 
-def add_location(lat, lon, name):
-    if (lat, lon) in _locations:
-        return
+def get_weather(lat, lon):
+    if (lat, lon) in _weather:
+        return _weather[(lat, lon)]
+
     _locations[(lat, lon)] = name
     asyncio.ensure_future(_init_location(lat, lon))
 
-
-def get_activity_weather():
-    return _activity_weather
