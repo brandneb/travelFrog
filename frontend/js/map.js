@@ -43,10 +43,72 @@ var weatherSpots = [];
 
 function refreshWeatherData() {
     $('.htmlmarker').remove();
-    const html = '<div class="htmlmarker">%1</div>';
+    const html = `
+    <div class="htmlmarker">
+        <img class="frog" src="/img/%image"/>
+        <div class="condensed">
+            <div class="strong">%forecast</div>
+            <div>%avgtemp</div>
+            <div>%price</div>
+        </div>
+        <div class="detailed">
+        <table>
+            <tbody>
+            <tr>
+                <td>Temperature</td>
+                %temps
+            </tr>
+            <tr>
+                <td>Feels like</td>
+                %feels
+            </tr>
+            <tr>
+                <td>Jonathan</td>
+                %wind
+            </tr>
+            <tr>
+                <td class="center" colspan="%ncols">%recommend</td>
+            </tr>
+            <tr>
+                <td class="center" colspan="%ncols"><a href="%offerlink" target="_blank">View Details</a></td>
+            </tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+    `; 
+
+    function factory(props) {
+        var base = html;
+        for(var prop in props) {
+            base = base.replace("%" + prop, props[prop]);
+        }
+        return base;
+    }
 
     weatherSpots.forEach(function(spot) {
-        var itemhtml = html.replace("%1", spot.name);
+        var props = {
+            name: spot.name,
+            forecast: spot.forecast,
+            avgtemp: spot.avg_temperature + '°C',
+            price: spot.price + "€",
+            image: 'frog.png',
+            temps: '',
+            feels: '',
+            wind: '',
+            recommend: 'Ideal for ' + spot.activity,
+            offerlink: spot.href
+        }
+
+        var ncols = spot.temperature.length;
+        props.ncols = ncols + 1; // headings are a column too
+        for(var i = 0; i < ncols; i++) {
+            props.temps += ('<td>' + spot.temperature[i] + '°C</td>');
+            props.feels += ('<td>' + spot.feelslike[i] + "°C</td>");
+            props.wind  += ('<td>' + spot.wind[i] + "km/h</td>");
+        }
+
+        var itemhtml = factory(props);
         var item = $(itemhtml);
         // todo setup interactivity
 

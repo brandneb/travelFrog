@@ -10,6 +10,34 @@
 
 .htmlmarker {
     border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    flex-flow: row nowrap;
+}
+
+.htmlmarker>* {
+    display: flex;
+}
+
+.condensed {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+}
+
+.condensed>* {
+    display: flex;
+}
+
+.frog {
+    align-self: center;
+    width: 75px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.leaflet-popup-content {
+    margin: 3px 5px;
 }
 
 .img-container{
