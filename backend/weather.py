@@ -20,8 +20,8 @@ def __build_request_url(lat, long) -> str:
     return f"https://api.weather.com/v1/geocode/{lat}/{long}/forecast/daily/5day.json?apiKey={API_KEY}&units=e"
 
 
-def __grid_to_coords(x, y):
-    return __grid_top_left[0] + x * __grid_cell_width, __grid_top_left[1] + y * __grid_cell_height
+def __grid_to_coords(row, col):
+    return __grid_top_left[0] + row * __grid_cell_height, __grid_top_left[1] + col * __grid_cell_width
 
 
 async def __get_weather_at(session, lat, long):
@@ -37,11 +37,11 @@ async def __get_weather(session):
     global __weather
     __weather = dict()
     print("refreshing weather cache")
-    for y in range(__grid_dim[1]):
-        print(f"requesting grid row {y}")
+    for row in range(__grid_dim[0]):
+        print(f"requesting grid row {row}")
         requests = []
-        for x in range(__grid_dim[0]):
-            requests.append(__get_weather_at(session, *__grid_to_coords(x, y)))
+        for col in range(__grid_dim[1]):
+            requests.append(__get_weather_at(session, *__grid_to_coords(row, col)))
         await asyncio.gather(*requests)
     print("done refreshing weather cache")
 
