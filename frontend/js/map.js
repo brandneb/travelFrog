@@ -45,8 +45,8 @@ function refreshWeatherData() {
     $('.htmlmarker').remove();
     const html = `
     <div class="htmlmarker">
-        <img class="frog" src="/img/%image"/>
-        <div class="condensed">
+        <img class="frog" src="/assets/%image"/>
+        <div class="condensed info">
             <div class="strong">%forecast</div>
             <div>%avgtemp</div>
             <div>%price</div>
@@ -86,13 +86,20 @@ function refreshWeatherData() {
         return base;
     }
 
+    function weather_image(forecast){
+        switch(forecast){
+            case "Sunny": return 'sunny_frog.png';
+            default: return 'frog.png';
+        }
+    }
+
     weatherSpots.forEach(function(spot) {
         var props = {
             name: spot.name,
             forecast: spot.forecast,
             avgtemp: spot.avg_temperature + '°C',
             price: spot.price + "€",
-            image: 'frog.png',
+            image: weather_image(spot.forecast),
             temps: '',
             feels: '',
             wind: '',

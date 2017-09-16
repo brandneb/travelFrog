@@ -1,9 +1,10 @@
 .fill {
-    display: flex;
-    flex-flow: column nowrap;
+	display: flex;
+	flex-flow: column nowrap;
 }
 
 .fill .grow {
+	max-height: 90%;
     display: flex;
     flex: 1 0 100px;
 }
@@ -11,7 +12,7 @@
 .htmlmarker {
     display: flex;
     justify-content: center;
-    flex-flow: row nowrap;
+	flex-flow: row nowrap;
 }
 
 /* .leaflet-popup.expanded .leaflet-popup-content {
@@ -31,6 +32,7 @@
 }
 
 .condensed {
+	font-family: Roboto;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -47,7 +49,9 @@
 .frog {
     align-self: center;
     width: 75px;
-    height: 100px;
+	height: auto;
+	margin-right: 5px;
+	margin-left: 0;
     object-fit: contain;
 }
 
