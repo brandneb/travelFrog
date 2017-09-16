@@ -88,7 +88,7 @@ function refreshWeatherData() {
 
     function weather_image(forecast){
         switch(forecast){
-            case "Sunny": return 'sunny_frog.png';
+            case "Sunny": return 'rain_frog.png';
             default: return 'frog.png';
         }
     }
