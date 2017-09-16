@@ -27,11 +27,10 @@ async def _get_weather_at(lat, lon, session):
 async def _get_weather_map(session):
     global _weather_map
     print("refreshing weather cache")
-    for chunk in _key_chunks(_weather_map, settings['weather_parallel_requests']):
-        requests = map(lambda coord: _get_weather_at(coord[0], coord[1], session), chunk)
-        weather_chunk = await asyncio.gather(*requests)
-        for i, coord in enumerate(chunk):
-            _weather_map[coord] = weather_chunk[i]
+    for coords in _key_chunks(_weather_map, settings['weather_parallel_requests']):
+        requests = map(lambda coord: _get_weather_at(coord[0], coord[1], session), coords)
+        responses = await asyncio.gather(*requests)
+        _weather_map.update(dict(zip(coords, responses)))
     print("done refreshing weather cache")
 
 
