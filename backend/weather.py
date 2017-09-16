@@ -5,53 +5,59 @@ from backend.settings import settings
 
 API_KEY = settings['bluemix_api_key']
 
-
-_weather = {}
+_weather = []
 _activity_weather = {}
-
-_grid_top_left = settings['weather_top_left']
-_grid_bot_right = settings['weather_bottom_right']
-_grid_dim = settings['weather_grid_dimensions']
-_grid_cell_width = (_grid_top_left[0] - _grid_bot_right[0]) / _grid_dim[0]
-_grid_cell_height = (_grid_top_left[1] - _grid_bot_right[1]) / _grid_dim[1]
+_locations = {}
 
 
-def _build_request_url(lat, long) -> str:
-    return f"https://api.weather.com/v1/geocode/{lat}/{long}/forecast/daily/5day.json?apiKey={API_KEY}&units=e"
+def _chunks(list, chunk_len):
+    """Yield successive chun_len-sized chunks from list."""
+    for i in range(0, len(list), chunk_len):
+        yield list[i:i + chunk_len]
 
 
-def _grid_to_coords(row, col):
-    return _grid_top_left[0] + row * _grid_cell_height, _grid_top_left[1] + col * _grid_cell_width
+def _build_request_url(lat, lon) -> str:
+    return f"https://api.weather.com/v1/geocode/{lat}/{lon}/forecast/daily/5day.json?apiKey={API_KEY}&units=e"
 
 
-async def _get_weather_at(session, lat, long):
-    async with session.get(_build_request_url(lat, long)) as resp:
-        return await resp.text()
+async def _get_weather_at(lat, lon, session):
+    async with session.get(_build_request_url(lat, lon)) as resp:
+        return await resp.json()
+
+
+async def _init_location(lat, lon):
+    global _weather
+    async with aiohttp.ClientSession() as session:
+        _weather.append(await _get_weather_at(lat, lon, session))
 
 
 async def _extract_activity_weather():
     pass
 
 
-async def _get_weather(session):
+async def _get_weather_all_locations(session):
     global _weather
-    _weather = dict()
+    _weather = []
     print("refreshing weather cache")
-    for row in range(_grid_dim[0]):
-        print(f"requesting grid row {row}")
-        requests = []
-        for col in range(_grid_dim[1]):
-            requests.append(_get_weather_at(session, *_grid_to_coords(row, col)))
-        await asyncio.gather(*requests)
+    for chunk in _chunks(_locations, settings['weather_parallel_requests']):
+        requests = map(lambda loc: _get_weather_at(loc.lat, loc.lon, session), chunk)
+        _weather.extend(await asyncio.gather(*requests))
     print("done refreshing weather cache")
 
 
 async def run_weather_cache():
     async with aiohttp.ClientSession() as session:
         while asyncio.get_event_loop().is_running():
-            await _get_weather(session)
+            await _get_weather_all_locations(session)
             await _extract_activity_weather()
             await asyncio.sleep(settings['weather_refresh_interval_s'])
+
+
+def add_location(lat, lon, name):
+    if (lat, lon) in _locations:
+        return
+    _locations[(lat, lon)] = name
+    asyncio.ensure_future(_init_location(lat, lon))
 
 
 def get_activity_weather():
