@@ -124,6 +124,10 @@ function refreshWeatherData() {
     }
 
     weatherSpots.forEach(function(spot) {
+        if(spot.price == null) {
+            return;
+        }
+
         var props = {
             name: spot.name,
             avgtemp: spot.avg_temperature + '°C',
