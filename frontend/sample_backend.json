@@ -1,8 +1,8 @@
 {
     "results": [
         {
-            "long": 48.125042,
-            "lat": 11.568607,
+            "lat": 48.125042,
+            "long": 11.568607,
             "temperature": 23.5,
             "feelslike": 25,
             "wind": 5,
@@ -11,8 +11,8 @@
             "name": "Munich"
         },
         {
-            "long": 47.367813, 
-            "lat": 11.429600,
+            "lat": 47.367813, 
+            "long": 11.429600,
             "temperature": 13.5,
             "feelslike": 16,
             "wind": 3,

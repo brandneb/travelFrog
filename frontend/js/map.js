@@ -3,13 +3,22 @@ var map = null;
 var userMarker = null;
 
 $(document).ready(function() {
-    map = L.map('map').setView(center, 8);
+    map = L.map('map').setView(center, 6);
     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
         attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
         maxZoom: 18,
         id: 'mapbox.streets',
         accessToken: 'pk.eyJ1IjoiYnJhbmRuZXJiIiwiYSI6ImNpdTQzYWZqNjAwMjQyeXFqOWR2a2tnZ2MifQ.LrcRwH1Vm-JsYR1zBb0Q9Q'
     }).addTo(map);
+    
+    console.log("get");
+    $.get('/sample_backend.json', function (data, status, xhr) {
+        console.log("got");
+        weatherSpots = data.results;
+        refreshWeatherData();
+    }).fail(function () {
+        console.log("cannot get backend data");
+    });
 });
 
 function recenter() {
@@ -33,32 +42,20 @@ function recenter() {
 var weatherSpots = [];
 
 function refreshWeatherData() {
-    // if(map.extent == undefined) {
-    //     mustRefreshMarkers = true;
-    //     setTimeout(function() {refreshWeatherData();}, 500);
-    //     return;
-    // } else {
-    //     mustRefreshMarkers = false;
-    // }
+    $('.htmlmarker').remove();
+    const html = '<div class="htmlmarker">%1</div>';
 
-    // $('.htmlmarker').remove();
-    // const html = '<div class="htmlmarker">%1</div>';
+    weatherSpots.forEach(function(spot) {
+        var itemhtml = html.replace("%1", spot.name);
+        var item = $(itemhtml);
+        // todo setup interactivity
 
-    // weatherSpots.forEach(function(spot) {
-    //     var itemhtml = html.replace("%1", spot.name);
-    //     var item = $(itemhtml);
-
-    //     var pt = new Point(spot.long, spot.lat);
-    //     pt.setSpatialReference(new SpatialReference(102100));
-    //     var point = map.toScreen(pt);
-    //     console.log(spot.name, "->", point.x, point.y);
-    //     item.css({
-    //         left: point.x,
-    //         top: point.y
-    //     });
-
-    //     $('#map').append(item);
-    // });
+        var popup = L.popup({
+            closeButton: false,
+            autoClose: false
+        }).setLatLng([spot.lat, spot.long]).setContent(item[0]);
+        map.addLayer(popup);
+    });
 }
 
 if (navigator.geolocation) {
@@ -72,14 +69,6 @@ if (navigator.geolocation) {
     });
 }
 
-console.log("get");
-$.get('/sample_backend.json', function (data, status, xhr) {
-    console.log("got");
-    weatherSpots = data.results;
-    refreshWeatherData();
-}).fail(function () {
-    console.log("cannot get backend data");
-});
 
 
 // var mustCenter = false;
