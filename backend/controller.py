@@ -1,11 +1,10 @@
 import asyncio
-
-from pprint import pprint, pformat
-
 from aiohttp import web
-
 import airports
 import skyscanner
+from weather import get_weather
+
+from pprint import pprint, pformat
 
 
 async def destinations(request: web.Request):
@@ -17,7 +16,15 @@ async def destinations(request: web.Request):
     nearest_airport = airports.get_nearest_airport(lon, lat)
     print(f'Nearest airport: {nearest_airport}')
 
-    cheapest_flight_destinations = await skyscanner.get_destinations(nearest_airport, 'Europe', 20)
+    cheapest_flight_destinations = await skyscanner.get_destinations(nearest_airport.iata, 'Europe', 20)
+
+    weather_requests = []
+    for destination in cheapest_flight_destinations:
+        coords = airports.get_airport_coords(destination['destination']['IataCode'])
+        weather_requests.append(get_weather(*coords))
+    weather_responses = await asyncio.gather(*weather_requests)
+
+
     flight_destinations_coords = []
     for destination in cheapest_flight_destinations:
         coords = airports.get_airport_coords(destination['destination']['IataCode'])
@@ -25,22 +32,18 @@ async def destinations(request: web.Request):
         price = destination['price']
         # TODO get URL
         flight_destinations_coords.append({
-            'long': coords[0],
-            'lat': coords[1],
+            'lat': coords[0],
+            'lon': coords[1],
             'name': name,
             'href': '',
             'price': price
         })
 
-    # TODO get weather information
 
-    pprint(flight_destinations_coords)
 
-    return web.json_response(text=str(flight_destinations_coords))
+    return web.json_response(flight_destinations_coords)
 
 
 def setup_routes(app):
     app.router.add_get('/destinations', destinations)
 
-
-print(airports.get_nearest_airport(47.398261, 8.512857))
