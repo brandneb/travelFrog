@@ -67,7 +67,7 @@
 }
 
 .leaflet-popup .leaflet-popup-content {
-    width: 80px !important;
+    width: 110px !important;
     height: 50px;
 } 
 .leaflet-popup.expanded .leaflet-popup-content {
@@ -76,7 +76,7 @@
 } 
 
 .leaflet-popup.expanded .leaflet-popup-tip-container {
-    left: 47px !important;
+    left: 62px !important;
 }
 
 .space-after {
