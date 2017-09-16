@@ -1,6 +1,7 @@
-var center = [11.568607, 48.125042];
+var center = [47.389832, 8.515901];
 var map = null;
 var userMarker = null;
+var located = false;
 
 $(document).ready(function() {
     map = L.map('map').setView(center, 6);
@@ -181,8 +182,22 @@ function refreshWeatherData() {
     });
 }
 
+function requestData() {    
+    var url = `${window.location.protocol}//${window.location.hostname}:30889/destinations?lat=${center[0]}&lon=${center[1]}`;
+    console.log("get", url);
+    var req = $.get(url, function (data, status, xhr) {
+        console.log("got");
+        weatherSpots = data;
+        refreshWeatherData();
+    });
+    req.fail(function () {
+        console.log("cannot get backend data", req.statusText);
+    });
+}
+
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function (pos) {
+        located = true;
         center = [pos.coords.latitude, pos.coords.longitude];
         if (map) {
             recenter();
@@ -190,15 +205,13 @@ if (navigator.geolocation) {
             mustCenter = true;
         }
 
-        var url = `${window.location.protocol}//${window.location.hostname}:30889/destinations?lat=${center[0]}&lon=${center[1]}`;
-        console.log("get", url);
-        var req = $.get(url, function (data, status, xhr) {
-            console.log("got");
-            weatherSpots = data;
-            refreshWeatherData();
-        });
-        req.fail(function () {
-            console.log("cannot get backend data", req.statusText);
-        });
+        requestData();
     });
 }
+
+setTimeout(function() {
+    if(!located) {
+        recenter();
+        requestData(); // request with default center
+    }
+}, 3000);
