@@ -122,7 +122,12 @@ table.tight td, th {
 
 .detail-price {
     font-size: 130%;
-    margin-right: 15px;
+	margin-right: 15px;
+	width: 100%
+}
+
+.detail-risk{
+	margin-top: 5px;
 }
 
 .leaflet-popup.expanded .detailed {
@@ -191,6 +196,11 @@ table.tight td, th {
 .skyscanner>*{
     display: flex;
     align-self: center;
+}
+
+.skyscanner .btn{
+	width: 100%;
+	text-align: center;
 }
 
 .info {

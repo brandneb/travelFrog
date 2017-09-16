@@ -75,8 +75,8 @@ function refreshWeatherData() {
                 <a class="waves-effect waves-light btn grey lighten-1" href="%offerlink" target="_blank">Book for %price with Ryanair</a>
             </div>
             <div class="skyscanner">
-                <span class="detail-price space-after">Risk level. Safe travels</span>
-                <a class="waves-effect waves-light btn grey lighten-1" href="%offerlink" target="_blank">Insure</a>
+                <span class="detail-risk">Risk level: Safe travels, do you need &nbsp<a class="teal-text lighten-3" href="%offerlink" target="_blank"> insurance?</a>
+                </span>
             </div>
             <table class="tight equal centered">
                 <thead>
@@ -133,7 +133,7 @@ function refreshWeatherData() {
             temps: '',
             wind: '',
             recommend: activityTitle(spot),
-            offerlink: spot.href
+            offerlink: "https://www.zurich.ch/en/private-customers/vehicles-and-travel/travel-insurance?WT.srch=1&WT.mc_id=z_rt_ch_se_gadw_gadw-869332546_gadw-g-_gadw-42271286045_gadw-203877147771_best%20travel%20insurance%20cover-b"
         }
 
         function officialIcon(codeInt) {
