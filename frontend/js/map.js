@@ -59,7 +59,7 @@ function refreshWeatherData() {
                     <h5 class="recommendation">%recommend</h5>
                     <div class="skyscanner">
                         <span class="price space-after">%price</span>
-                        <a href="%offerlink">book</a>
+                        <a class="waves-effect waves-light btn grey lighten-1" href="%offerlink" target="_blank">book</a>
                     </div>
                 </div>
             </div>
@@ -111,7 +111,7 @@ function refreshWeatherData() {
         var props = {
             name: spot.name,
             avgtemp: spot.avg_temperature + '°C',
-            price: spot.price + "€",
+            price: spot.price + " CHF",
             image: weather_image(spot.forecast),
             forecasts: '',
             temps: '',
@@ -120,11 +120,18 @@ function refreshWeatherData() {
             offerlink: spot.href
         }
 
+        function officialIcon(codeInt) {
+            return '/img/weather/' + String(codeInt).padStart(2, '0') + '.svg'
+        }
+
+        var maxWindSpeed = 60;
+        var maxTemperature = 40;
+
         var ncols = spot.temperature.length;
         for(var i = 0; i < 5; i++) {
-            props.forecasts += ('<td>' + (i >= ncols ? '' : spot.forecast[i]) + "</td>");
-            props.temps += ('<td>' + (i >= ncols ? '' : spot.temperature[i]) + '°C</td>');
-            props.wind  += ('<td>' + (i >= ncols ? '' : spot.wind[i]) + "km/h</td>");
+            props.forecasts += ('<td>' + (i >= ncols ? '' : `<img class="official-weather" src="${officialIcon(spot.icon_code[i])}" alt="${spot.forecast[i]}"`) + "</td>");
+            props.temps += ('<td>' + (i >= ncols ? '' : `<div class="bottle-outer temp"><div class="bottle-inner" style="height: ${Math.min(100, spot.temperature[i] / maxTemperature * 100)}%"></div><div class="valign-wrapper align-center vfill">${spot.temperature[i]}°C</div></div>`) + '</td>');
+            props.wind  += ('<td>' + (i >= ncols ? '' : `<div class="bottle-outer wind"><div class="bottle-inner" style="height: ${Math.min(100, spot.wind[i] / maxWindSpeed * 100)}%"></div><div class="valign-wrapper align-center vfill">${spot.wind[i]}km/h</div></div>`) + "</td>");
         }
 
         var itemhtml = factory(props);

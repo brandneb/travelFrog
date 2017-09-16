@@ -4,7 +4,7 @@
 }
 
 .fill .grow {
-	max-height: 90%;
+	/* max-height: 90%; */
     display: flex;
     flex: 1 0 100px;
 }
@@ -13,6 +13,57 @@
     display: flex;
     justify-content: center;
 	flex-flow: row nowrap;
+}
+
+.official-weather {
+    object-fit: contain;
+    width: 40px;
+    height: 40px;
+}
+
+.bottle-outer {
+    position: relative;
+    height: 100%;
+    display: block;
+    width: 100%;
+    background-color: #c5ecfe;
+    border-radius: 2px;
+    background-clip: padding-box;
+    margin: 0;
+    overflow: hidden;
+}
+
+.vfill {
+    height: 100%;
+    justify-content: center;
+    position: relative;
+}
+
+.bottle-outer.wind {
+    height: 40px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.bottle-outer.temp {
+    height: 40px;
+    width: 80%;
+    margin: 0 auto;
+    background-color: #FAEDAE;
+}
+
+.bottle-inner {
+    position: absolute;
+    background-color: inherit;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #03a9f4;
+    transition: height 0.3s linear;
+}
+
+.bottle-outer.temp .bottle-inner {
+    background-color: #F9A258;
 }
 
 .leaflet-popup .leaflet-popup-content {
@@ -149,7 +200,7 @@ table.tight td, th {
     min-height: 90%;
 }
 
-.btn{
+.btn.getaway {
 	background-color: transparent;
 	border: 2px solid white;
 	min-width: 50%;
@@ -157,13 +208,13 @@ table.tight td, th {
 	height: auto;
 }
 
-.btn a{
+.btn.getaway a{
 	color: white;
 	background-color: transparent;
 	font-size: 1.2em;
 }
 
-.btn a:hover{
+.btn.getaway a:hover{
 	background-color: transparent;
 }
 
