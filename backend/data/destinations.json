@@ -238,5 +238,57 @@
       "longitude": 7.324484,
       "latitude": 45.522028
     }
+  ],
+  "skiing": [
+    {
+      "name": "Chamonix",
+      "longitude": 6.869433,
+      "latitude": 45.923697
+    },
+    {
+      "name": "Zermatt",
+      "longitude": 7.749117,
+      "latitude": 46.020713
+    },
+    {
+      "name": "St. Anton am Arlberg",
+      "longitude": 10.268179,
+      "latitude": 47.129635
+    },
+    {
+      "name": "Bansko",
+      "longitude": 23.485653,
+      "latitude": 41.840424
+    },
+    {
+      "name": "Tignes",
+      "longitude": 6.905579,
+      "latitude": 45.468323
+    },
+    {
+      "name": "Morzine",
+      "longitude": 6.708877,
+      "latitude": 46.179192
+    },
+    {
+      "name": "Sölden",
+      "longitude": 11.007623,
+      "latitude": 46.965494
+    },
+    {
+      "name": "Val-d'Isère",
+      "longitude": 6.980226,
+      "latitude": 45.448034
+    },
+    {
+      "name": "Ischgl",
+      "longitude": 10.288420,
+      "latitude": 47.011845
+    },
+    {
+      "name": "Livigno",
+      "longitude": 10.135732,
+      "latitude": 46.538636
+    }
   ]
 }

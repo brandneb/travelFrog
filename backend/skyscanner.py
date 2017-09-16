@@ -93,7 +93,7 @@ async def _parse_routes_for_cheapest_destinations(route_results, num_results, wi
 
 
 def _parse_dates(dates_result, with_url):
-    if len(dates_result['Quotes']) == 0:
+    if 'ValidationErrors' in dates_result or len(dates_result['Quotes']) == 0:
         return None
     quote = dates_result['Quotes'][0]
     all_places = dates_result['Places']

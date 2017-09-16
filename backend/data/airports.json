@@ -30572,17 +30572,6 @@
         "size": "medium"
     },
     {
-        "iata": "MFX",
-        "lon": "6.566667",
-        "iso": "FR",
-        "status": 1,
-        "name": null,
-        "continent": "EU",
-        "type": "airport",
-        "lat": "45.416668",
-        "size": "small"
-    },
-    {
         "iata": "AUF",
         "lon": "3.5",
         "iso": "FR",
@@ -30634,17 +30623,6 @@
         "continent": "EU",
         "type": "airport",
         "size": "medium"
-    },
-    {
-        "iata": "CVF",
-        "lon": "6.634722",
-        "iso": "FR",
-        "status": 1,
-        "name": "Courchevel Airport",
-        "continent": "EU",
-        "type": "airport",
-        "lat": "45.396667",
-        "size": "small"
     },
     {
         "iata": "LYS",
@@ -33234,17 +33212,6 @@
         "size": "large"
     },
     {
-        "iata": "HOH",
-        "lon": "9.7",
-        "iso": "AT",
-        "status": 1,
-        "name": "Hohenems-Dornbirn Airport",
-        "continent": "EU",
-        "type": "airport",
-        "lat": "47.38333",
-        "size": "small"
-    },
-    {
         "iata": "LOR",
         "iso": "US",
         "status": 1,
@@ -33943,17 +33910,6 @@
         "continent": "EU",
         "type": "airport",
         "lat": "47.483334",
-        "size": "medium"
-    },
-    {
-        "iata": "SMV",
-        "lon": "9.885556",
-        "iso": "CH",
-        "status": 1,
-        "name": "Samedan Airport",
-        "continent": "EU",
-        "type": "airport",
-        "lat": "46.53472",
         "size": "medium"
     },
     {
