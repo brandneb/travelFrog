@@ -45,35 +45,49 @@ function refreshWeatherData() {
     $('.htmlmarker').remove();
     const html = `
     <div class="htmlmarker">
-        <img class="frog" src="/img/%image"/>
         <div class="condensed">
-            <div class="strong">%forecast</div>
-            <div>%avgtemp</div>
-            <div>%price</div>
+            <img class="frog" src="/img/%image"/>
+            <div class="info">
+                <div class="temperature">%avgtemp</div>
+                <div class="price">%price</div>
+            </div>
         </div>
         <div class="detailed">
-        <table>
-            <tbody>
-            <tr>
-                <td>Temperature</td>
-                %temps
-            </tr>
-            <tr>
-                <td>Feels like</td>
-                %feels
-            </tr>
-            <tr>
-                <td>Jonathan</td>
-                %wind
-            </tr>
-            <tr>
-                <td class="center" colspan="%ncols">%recommend</td>
-            </tr>
-            <tr>
-                <td class="center" colspan="%ncols"><a href="%offerlink" target="_blank">View Details</a></td>
-            </tr>
-            </tbody>
-        </table>
+            <div class="toprow">
+                <img class="frog big" src="/img/%image"/>
+                <div class="toprowdetails">
+                    <h5 class="recommendation">%recommend</h5>
+                    <div class="skyscanner">
+                        <span class="price space-after">%price</span>
+                        <a href="%offerlink">book</a>
+                    </div>
+                </div>
+            </div>
+            <table class="tight equal centered">
+                <thead>
+                <tr>
+                    <th/>
+                    <th>Fr</th>
+                    <th>Sat</th>
+                    <th>Sun</th>
+                    <th>Mon</th>
+                    <th>Tue</th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="right-align">Weather</td>
+                    %forecasts
+                </tr>
+                <tr>
+                    <td class="right-align">Temp.</td>
+                    %temps
+                </tr>
+                <tr>
+                    <td class="right-align">Wind</td>
+                    %wind
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
     `; 
@@ -81,7 +95,7 @@ function refreshWeatherData() {
     function factory(props) {
         var base = html;
         for(var prop in props) {
-            base = base.replace("%" + prop, props[prop]);
+            base = base.split("%" + prop).join(props[prop]);
         }
         return base;
     }
@@ -89,42 +103,46 @@ function refreshWeatherData() {
     weatherSpots.forEach(function(spot) {
         var props = {
             name: spot.name,
-            forecast: spot.forecast,
             avgtemp: spot.avg_temperature + '°C',
             price: spot.price + "€",
             image: 'frog.png',
+            forecasts: '',
             temps: '',
-            feels: '',
             wind: '',
-            recommend: 'Ideal for ' + spot.activity,
+            recommend: spot.activity,
             offerlink: spot.href
         }
 
         var ncols = spot.temperature.length;
-        props.ncols = ncols + 1; // headings are a column too
-        for(var i = 0; i < ncols; i++) {
-            props.temps += ('<td>' + spot.temperature[i] + '°C</td>');
-            props.feels += ('<td>' + spot.feelslike[i] + "°C</td>");
-            props.wind  += ('<td>' + spot.wind[i] + "km/h</td>");
+        for(var i = 0; i < 5; i++) {
+            props.forecasts += ('<td>' + (i >= ncols ? '' : spot.forecast[i]) + "</td>");
+            props.temps += ('<td>' + (i >= ncols ? '' : spot.temperature[i]) + '°C</td>');
+            props.wind  += ('<td>' + (i >= ncols ? '' : spot.wind[i]) + "km/h</td>");
         }
 
         var itemhtml = factory(props);
         var item = $(itemhtml);
-        item.hover(function () {
-            $(this).children('.detailed').fadeIn();
-            $(this).parents('.leaflet-popup').addClass('expanded');
-          },
-          function () {
-            $(this).children('.detailed').fadeOut();
-            $(this).parents('.leaflet-popup').removeClass('expanded');
-          });
-        // todo setup interactivity
 
         var popup = L.popup({
             closeButton: false,
-            autoClose: false
+            autoClose: false,
+            closeOnClick: false
         }).setLatLng([spot.lat, spot.long]).setContent(item[0]);
-        item.parent('.leaflet-popup')
+        
+        item.click(function () {
+            var expanded = $(this).parents('.leaflet-popup').hasClass('expanded');
+            if(expanded) {
+                $(this).parents('.leaflet-popup').removeClass('expanded');
+                $(this).children('.condensed').show();
+                $(this).children('.detailed').hide();
+            } else {
+                popup.bringToFront();
+                $(this).children('.condensed').hide();
+                $(this).children('.detailed').fadeIn();
+                $(this).parents('.leaflet-popup').addClass('expanded');
+            }
+        });
+
         map.addLayer(popup);
     });
 }
