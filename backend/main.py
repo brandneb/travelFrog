@@ -1,7 +1,7 @@
 from aiohttp import web
-from backend.controller import setup_routes
+from controller import setup_routes
 import asyncio
-from backend.weather import run_weather_cache
+from weather import run_weather_cache
 
 app = web.Application()
 setup_routes(app)
