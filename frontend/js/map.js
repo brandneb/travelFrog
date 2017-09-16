@@ -110,12 +110,21 @@ function refreshWeatherData() {
 
         var itemhtml = factory(props);
         var item = $(itemhtml);
+        item.hover(function () {
+            $(this).children('.detailed').fadeIn();
+            $(this).parents('.leaflet-popup').addClass('expanded');
+          },
+          function () {
+            $(this).children('.detailed').fadeOut();
+            $(this).parents('.leaflet-popup').removeClass('expanded');
+          });
         // todo setup interactivity
 
         var popup = L.popup({
             closeButton: false,
             autoClose: false
         }).setLatLng([spot.lat, spot.long]).setContent(item[0]);
+        item.parent('.leaflet-popup')
         map.addLayer(popup);
     });
 }
