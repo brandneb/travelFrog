@@ -23,7 +23,7 @@ def get_nearest_airport(longitude, latitude):
     nearest_iata = None
     nearest_distance = None
     for iata, coords in _airport_coords.items():
-        d = haversine(longitude, latitude, coords[0], coords[1])
+        d = haversine(longitude, latitude, float(coords[0]), float(coords[1]))
         if not nearest_distance or d < nearest_distance:
             nearest_iata = iata
             nearest_distance = d
