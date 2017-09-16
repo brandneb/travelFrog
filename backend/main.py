@@ -1,5 +1,5 @@
 from aiohttp import web
-from backend.routes import setup_routes
+from backend.controller import setup_routes
 import asyncio
 from backend.weather import run_weather_cache
 
