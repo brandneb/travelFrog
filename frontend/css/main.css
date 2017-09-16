@@ -7,3 +7,33 @@
     display: flex;
     flex: 1 0 100px;
 }
+
+.img-container{
+	background-image: url("../assets/travel.jpg");
+	background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 90%;
+}
+
+.btn{
+	background-color: transparent;
+	border: 2px solid white;
+	min-width: 40%;
+}
+
+.btn a{
+	margin:10px;
+	color: white;
+	background-color: transparent;
+}
+
+.btn a:hover{
+	background-color: transparent;
+}
+
+.white-box{
+	background: rgba(255, 255, 255, 0.6);
+	margin: 5px;
+	padding: 10px;
+	border-radius: 5px;
+}
