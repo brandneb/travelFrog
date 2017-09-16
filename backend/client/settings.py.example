@@ -1,0 +1,4 @@
+settings = {
+    'bluemix_api_key': '',
+    'skyscanner_api_key': ''
+}
