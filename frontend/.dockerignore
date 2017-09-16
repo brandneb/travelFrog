@@ -1,0 +1,13 @@
+.gitignore
+.idea/
+.git/
+tests/
+config/
+logs/
+*.yml
+*.md
+__pycache__
+.gitkeep
+.dockerignore
+Dockerfile
+nginx_default.conf
