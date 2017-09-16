@@ -26,7 +26,7 @@ async def _get_weather_at(lat, lon, session):
 
 async def _get_weather_map(session):
     global _weather_map
-    print("refreshing weather cache")
+    print(f"refreshing weather cache for {len(_weather_map)} locations")
     for coords in _key_chunks(_weather_map, settings['weather_parallel_requests']):
         requests = map(lambda coord: _get_weather_at(coord[0], coord[1], session), coords)
         responses = await asyncio.gather(*requests)
@@ -46,6 +46,6 @@ async def get_weather(lat, lon):
         return _weather_map[(lat, lon)]
 
     async with aiohttp.ClientSession() as session:
-        weather = _get_weather_at(lat, lon, session)
+        weather = await _get_weather_at(lat, lon, session)
         _weather_map[(lat, lon)] = weather
         return weather
