@@ -14,7 +14,7 @@ ROUTES_URL = "http://partners.api.skyscanner.net/apiservices/browseroutes/v1.0/G
 SUGGEST_URL = "http://partners.api.skyscanner.net/apiservices/autosuggest/v1.0/GE/EUR/EN/?query={0}&apiKey={1}"
 REFERRAL_URL = "http://partners.api.skyscanner.net/apiservices/referral/v1.0/GE/EUR/EN/{0}/{1}/2017-09-22/2017-09-24?apiKey={2}"
 
-with open('continent_countries_mapping.json') as data_file:
+with open('data/continent_countries_mapping.json') as data_file:
     CONTINENTS_COUNTRIES_MAP = json.load(data_file)
 
 
