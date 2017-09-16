@@ -6,42 +6,42 @@ from backend.settings import settings
 API_KEY = settings['bluemix_api_key']
 
 
-__weather = {}
-__activity_weather = {}
+_weather = {}
+_activity_weather = {}
 
-__grid_top_left = settings['weather_top_left']
-__grid_bot_right = settings['weather_bottom_right']
-__grid_dim = settings['weather_grid_dimensions']
-__grid_cell_width = (__grid_top_left[0] - __grid_bot_right[0]) / __grid_dim[0]
-__grid_cell_height = (__grid_top_left[1] - __grid_bot_right[1]) / __grid_dim[1]
+_grid_top_left = settings['weather_top_left']
+_grid_bot_right = settings['weather_bottom_right']
+_grid_dim = settings['weather_grid_dimensions']
+_grid_cell_width = (_grid_top_left[0] - _grid_bot_right[0]) / _grid_dim[0]
+_grid_cell_height = (_grid_top_left[1] - _grid_bot_right[1]) / _grid_dim[1]
 
 
-def __build_request_url(lat, long) -> str:
+def _build_request_url(lat, long) -> str:
     return f"https://api.weather.com/v1/geocode/{lat}/{long}/forecast/daily/5day.json?apiKey={API_KEY}&units=e"
 
 
-def __grid_to_coords(row, col):
-    return __grid_top_left[0] + row * __grid_cell_height, __grid_top_left[1] + col * __grid_cell_width
+def _grid_to_coords(row, col):
+    return _grid_top_left[0] + row * _grid_cell_height, _grid_top_left[1] + col * _grid_cell_width
 
 
-async def __get_weather_at(session, lat, long):
-    async with session.get(__build_request_url(lat, long)) as resp:
+async def _get_weather_at(session, lat, long):
+    async with session.get(_build_request_url(lat, long)) as resp:
         return await resp.text()
 
 
-async def __extract_activity_weather():
+async def _extract_activity_weather():
     pass
 
 
-async def __get_weather(session):
-    global __weather
-    __weather = dict()
+async def _get_weather(session):
+    global _weather
+    _weather = dict()
     print("refreshing weather cache")
-    for row in range(__grid_dim[0]):
+    for row in range(_grid_dim[0]):
         print(f"requesting grid row {row}")
         requests = []
-        for col in range(__grid_dim[1]):
-            requests.append(__get_weather_at(session, *__grid_to_coords(row, col)))
+        for col in range(_grid_dim[1]):
+            requests.append(_get_weather_at(session, *_grid_to_coords(row, col)))
         await asyncio.gather(*requests)
     print("done refreshing weather cache")
 
@@ -49,10 +49,10 @@ async def __get_weather(session):
 async def run_weather_cache():
     async with aiohttp.ClientSession() as session:
         while asyncio.get_event_loop().is_running():
-            await __get_weather(session)
-            await __extract_activity_weather()
+            await _get_weather(session)
+            await _extract_activity_weather()
             await asyncio.sleep(settings['weather_refresh_interval_s'])
 
 
 def get_activity_weather():
-    return __activity_weather
+    return _activity_weather
