@@ -1,294 +1,294 @@
 {
-  "surfing": [
-    {
-      "name": "Biarritz",
-      "longitude": -1.558626,
-      "latitude": 43.483152
-    },
-    {
-      "name": "Peniche",
-      "longitude": -9.387622,
-      "latitude": 39.360329
-    },
-    {
-      "name": "Ericeira",
-      "longitude": -9.417617,
-      "latitude": 38.966493
-    },
-    {
-      "name": "Newquay",
-      "longitude": -5.073719,
-      "latitude": 50.415497
-    },
-    {
-      "name": "Soorts-Hossegor",
-      "longitude": -1.397687,
-      "latitude": 43.664619
-    },
-    {
-      "name": "Lacanau",
-      "longitude": -1.075745,
-      "latitude": 44.978459
-    },
-    {
-      "name": "Nazaré",
-      "longitude": -9.070099,
-      "latitude": 39.601215
-    },
-    {
-      "name": "Mundaka",
-      "longitude": -2.700251,
-      "latitude": 43.408017
-    },
-    {
-      "name": "Sagres",
-      "longitude": -8.940586,
-      "latitude": 37.016832
-    },
-    {
-      "name": "Tarifa",
-      "longitude": -5.604450,
-      "latitude": 36.014321
-    }
-  ],
-  "beach": [
-    {
-      "name": "Ibiza",
-      "longitude": 1.482148,
-      "latitude": 39.020010
-    },
-    {
-      "name": "Majorca",
-      "longitude": 3.017571,
-      "latitude": 39.695263
-    },
-    {
-      "name": "Zakynthos Island",
-      "longitude": 20.899876,
-      "latitude": 37.787033
-    },
-    {
-      "name": "Rhodes",
-      "longitude": 28.217638,
-      "latitude": 36.434053
-    },
-    {
-      "name": "Corfu Island",
-      "longitude": 19.921678,
-      "latitude": 39.624262
-    },
-    {
-      "name": "Santorini",
-      "longitude": 25.461509,
-      "latitude": 36.393156
-    },
-    {
-      "name": "Mykonos",
-      "longitude": 25.328884,
-      "latitude": 37.446735
-    },
-    {
-      "name": "Barcelona",
-      "longitude": 2.173403,
-      "latitude": 41.385064
-    },
-    {
-      "name": "Dubrovnik",
-      "longitude": 18.094424,
-      "latitude": 42.650661
-    }
-  ],
-  "camping": [
-    {
-      "name": "Lake Garda",
-      "longitude": 10.635141,
-      "latitude": 45.604939
-    },
-    {
-      "name": "Elba",
-      "longitude": 10.192739,
-      "latitude": 42.778187
-    },
-    {
-      "name": "Oléron",
-      "longitude": -1.273365,
-      "latitude": 45.953973
-    },
-    {
-      "name": "Umag",
-      "longitude": 13.525721,
-      "latitude": 45.437206
-    },
-    {
-      "name": "Krk",
-      "longitude": 14.575211,
-      "latitude": 45.027899
-    },
-    {
-      "name": "Zaton",
-      "longitude": 15.172241,
-      "latitude": 44.219588
-    },
-    {
-      "name": "Lake Balaton",
-      "longitude": 17.734044,
-      "latitude": 46.830268
-    },
-    {
-      "name": "Poreč",
-      "longitude": 13.594740,
-      "latitude": 45.227165
-    }
-  ],
-  "culture": [
-    {
-      "name": "Paris",
-      "longitude": 2.352222,
-      "latitude": 48.856614
-    },
-    {
-      "name": "London",
-      "longitude": -0.127758,
-      "latitude": 51.507351
-    },
-    {
-      "name": "Madrid",
-      "longitude": -3.703790,
-      "latitude": 40.416775
-    },
-    {
-      "name": "Berlin",
-      "longitude": 13.404954,
-      "latitude": 52.520007
-    },
-    {
-      "name": "Amsterdam",
-      "longitude": 4.895168,
-      "latitude": 52.370216
-    },
-    {
-      "name": "Rome",
-      "longitude": 12.496366,
-      "latitude": 41.902783
-    },
-    {
-      "name": "Athens",
-      "longitude": 23.727539,
-      "latitude": 37.983810
-    },
-    {
-      "name": "Florence",
-      "longitude": 11.255814,
-      "latitude": 43.769560
-    },
-    {
-      "name": "Vienna",
-      "longitude": 16.373819,
-      "latitude": 48.208174
-    },
-    {
-      "name": "Munich",
-      "longitude": 11.581980,
-      "latitude": 48.135125
-    }
-  ],
-  "hiking": [
-    {
-      "name": "Chamonix",
-      "longitude": 6.869433,
-      "latitude": 45.923697
-    },
-    {
-      "name": "Zermatt",
-      "longitude": 7.749117,
-      "latitude": 46.020713
-    },
-    {
-      "name": "Mount Etna",
-      "longitude": 14.993435,
-      "latitude": 37.751005
-    },
-    {
-      "name": "Amalfi Coast",
-      "longitude": 14.602896,
-      "latitude": 40.633339
-    },
-    {
-      "name": "Grindelwald",
-      "longitude": 8.041396,
-      "latitude": 46.624164
-    },
-    {
-      "name": "Garmisch-Partenkirchen",
-      "longitude": 11.095498,
-      "latitude": 47.491695
-    },
-    {
-      "name": "Bavarian Forest",
-      "longitude": 12.669831,
-      "latitude": 48.998996
-    },
-    {
-      "name": "Tatra Mountains",
-      "longitude": 20.044299,
-      "latitude": 49.155698
-    },
-    {
-      "name": "Gran Paradiso National Park",
-      "longitude": 7.324484,
-      "latitude": 45.522028
-    }
-  ],
-  "skiing": [
-    {
-      "name": "Chamonix",
-      "longitude": 6.869433,
-      "latitude": 45.923697
-    },
-    {
-      "name": "Zermatt",
-      "longitude": 7.749117,
-      "latitude": 46.020713
-    },
-    {
-      "name": "St. Anton am Arlberg",
-      "longitude": 10.268179,
-      "latitude": 47.129635
-    },
-    {
-      "name": "Bansko",
-      "longitude": 23.485653,
-      "latitude": 41.840424
-    },
-    {
-      "name": "Tignes",
-      "longitude": 6.905579,
-      "latitude": 45.468323
-    },
-    {
-      "name": "Morzine",
-      "longitude": 6.708877,
-      "latitude": 46.179192
-    },
-    {
-      "name": "Sölden",
-      "longitude": 11.007623,
-      "latitude": 46.965494
-    },
-    {
-      "name": "Val-d'Isère",
-      "longitude": 6.980226,
-      "latitude": 45.448034
-    },
-    {
-      "name": "Ischgl",
-      "longitude": 10.288420,
-      "latitude": 47.011845
-    },
-    {
-      "name": "Livigno",
-      "longitude": 10.135732,
-      "latitude": 46.538636
-    }
-  ]
+    "beach": [
+        {
+            "latitude": 39.02001,
+            "longitude": 1.482148,
+            "name": "Ibiza"
+        },
+        {
+            "latitude": 39.695263,
+            "longitude": 3.017571,
+            "name": "Majorca"
+        },
+        {
+            "latitude": 37.787033,
+            "longitude": 20.899876,
+            "name": "Zakynthos Island"
+        },
+        {
+            "latitude": 36.434053,
+            "longitude": 28.217638,
+            "name": "Rhodes"
+        },
+        {
+            "latitude": 39.624262,
+            "longitude": 19.921678,
+            "name": "Corfu Island"
+        },
+        {
+            "latitude": 36.393156,
+            "longitude": 25.461509,
+            "name": "Santorini"
+        },
+        {
+            "latitude": 37.446735,
+            "longitude": 25.328884,
+            "name": "Mykonos"
+        },
+        {
+            "latitude": 41.385064,
+            "longitude": 2.173403,
+            "name": "Barcelona"
+        },
+        {
+            "latitude": 42.650661,
+            "longitude": 18.094424,
+            "name": "Dubrovnik"
+        }
+    ],
+    "camping": [
+        {
+            "latitude": 45.604939,
+            "longitude": 10.635141,
+            "name": "Lake Garda"
+        },
+        {
+            "latitude": 42.778187,
+            "longitude": 10.192739,
+            "name": "Elba"
+        },
+        {
+            "latitude": 45.953973,
+            "longitude": -1.273365,
+            "name": "Oléron"
+        },
+        {
+            "latitude": 45.437206,
+            "longitude": 13.525721,
+            "name": "Umag"
+        },
+        {
+            "latitude": 45.027899,
+            "longitude": 14.575211,
+            "name": "Krk"
+        },
+        {
+            "latitude": 44.219588,
+            "longitude": 15.172241,
+            "name": "Zaton"
+        },
+        {
+            "latitude": 46.830268,
+            "longitude": 17.734044,
+            "name": "Lake Balaton"
+        },
+        {
+            "latitude": 45.227165,
+            "longitude": 13.59474,
+            "name": "Porec"
+        }
+    ],
+    "culture": [
+        {
+            "latitude": 48.856614,
+            "longitude": 2.352222,
+            "name": "Paris"
+        },
+        {
+            "latitude": 51.507351,
+            "longitude": -0.127758,
+            "name": "London"
+        },
+        {
+            "latitude": 40.416775,
+            "longitude": -3.70379,
+            "name": "Madrid"
+        },
+        {
+            "latitude": 52.520007,
+            "longitude": 13.404954,
+            "name": "Berlin"
+        },
+        {
+            "latitude": 52.370216,
+            "longitude": 4.895168,
+            "name": "Amsterdam"
+        },
+        {
+            "latitude": 41.902783,
+            "longitude": 12.496366,
+            "name": "Rome"
+        },
+        {
+            "latitude": 37.98381,
+            "longitude": 23.727539,
+            "name": "Athens"
+        },
+        {
+            "latitude": 43.76956,
+            "longitude": 11.255814,
+            "name": "Florence"
+        },
+        {
+            "latitude": 48.208174,
+            "longitude": 16.373819,
+            "name": "Vienna"
+        },
+        {
+            "latitude": 48.135125,
+            "longitude": 11.58198,
+            "name": "Munich"
+        }
+    ],
+    "hiking": [
+        {
+            "latitude": 45.923697,
+            "longitude": 6.869433,
+            "name": "Chamonix"
+        },
+        {
+            "latitude": 46.020713,
+            "longitude": 7.749117,
+            "name": "Zermatt"
+        },
+        {
+            "latitude": 37.751005,
+            "longitude": 14.993435,
+            "name": "Mount Etna"
+        },
+        {
+            "latitude": 40.633339,
+            "longitude": 14.602896,
+            "name": "Amalfi Coast"
+        },
+        {
+            "latitude": 46.624164,
+            "longitude": 8.041396,
+            "name": "Grindelwald"
+        },
+        {
+            "latitude": 47.491695,
+            "longitude": 11.095498,
+            "name": "Garmisch-Partenkirchen"
+        },
+        {
+            "latitude": 48.998996,
+            "longitude": 12.669831,
+            "name": "Bavarian Forest"
+        },
+        {
+            "latitude": 49.155698,
+            "longitude": 20.044299,
+            "name": "Tatra Mountains"
+        },
+        {
+            "latitude": 45.522028,
+            "longitude": 7.324484,
+            "name": "Gran Paradiso National Park"
+        }
+    ],
+    "skiing": [
+        {
+            "latitude": 45.923697,
+            "longitude": 6.869433,
+            "name": "Chamonix"
+        },
+        {
+            "latitude": 46.020713,
+            "longitude": 7.749117,
+            "name": "Zermatt"
+        },
+        {
+            "latitude": 47.129635,
+            "longitude": 10.268179,
+            "name": "St. Anton am Arlberg"
+        },
+        {
+            "latitude": 41.840424,
+            "longitude": 23.485653,
+            "name": "Bansko"
+        },
+        {
+            "latitude": 45.468323,
+            "longitude": 6.905579,
+            "name": "Tignes"
+        },
+        {
+            "latitude": 46.179192,
+            "longitude": 6.708877,
+            "name": "Morzine"
+        },
+        {
+            "latitude": 46.965494,
+            "longitude": 11.007623,
+            "name": "Sölden"
+        },
+        {
+            "latitude": 45.448034,
+            "longitude": 6.980226,
+            "name": "Val-d'Isère"
+        },
+        {
+            "latitude": 47.011845,
+            "longitude": 10.28842,
+            "name": "Ischgl"
+        },
+        {
+            "latitude": 46.538636,
+            "longitude": 10.135732,
+            "name": "Livigno"
+        }
+    ],
+    "surfing": [
+        {
+            "latitude": 43.483152,
+            "longitude": -1.558626,
+            "name": "Biarritz"
+        },
+        {
+            "latitude": 39.360329,
+            "longitude": -9.387622,
+            "name": "Peniche"
+        },
+        {
+            "latitude": 38.966493,
+            "longitude": -9.417617,
+            "name": "Ericeira"
+        },
+        {
+            "latitude": 50.415497,
+            "longitude": -5.073719,
+            "name": "Newquay"
+        },
+        {
+            "latitude": 43.664619,
+            "longitude": -1.397687,
+            "name": "Soorts-Hossegor"
+        },
+        {
+            "latitude": 44.978459,
+            "longitude": -1.075745,
+            "name": "Lacanau"
+        },
+        {
+            "latitude": 39.601215,
+            "longitude": -9.070099,
+            "name": "Nazaré"
+        },
+        {
+            "latitude": 43.408017,
+            "longitude": -2.700251,
+            "name": "Mundaka"
+        },
+        {
+            "latitude": 37.016832,
+            "longitude": -8.940586,
+            "name": "Sagres"
+        },
+        {
+            "latitude": 36.014321,
+            "longitude": -5.60445,
+            "name": "Tarifa"
+        }
+    ]
 }
