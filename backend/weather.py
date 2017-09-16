@@ -16,7 +16,7 @@ def _key_chunks(dict, chunk_size):
 
 
 def _build_request_url(lat, lon) -> str:
-    return f"https://api.weather.com/v1/geocode/{lat}/{lon}/forecast/daily/5day.json?apiKey={API_KEY}&units=e"
+    return f"https://api.weather.com/v1/geocode/{lat}/{lon}/forecast/daily/5day.json?apiKey={API_KEY}&units=m"
 
 
 async def _get_weather_at(lat, lon, session):
