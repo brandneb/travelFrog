@@ -9,6 +9,7 @@ from pprint import pprint, pformat
 
 
 async def destinations(request: web.Request):
+    print("got request")
     params = request.rel_url.query
     print(f'URL params:\n{pformat(params)}')
     lat = float(params['lat'])
