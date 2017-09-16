@@ -2,3 +2,5 @@
 \.vscode/
 
 frontend/node_modules/
+
+.idea

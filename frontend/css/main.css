@@ -1,0 +1,9 @@
+.fill {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.fill .grow {
+    display: flex;
+    flex: 1 0 100px;
+}
