@@ -9498,17 +9498,6 @@
         "size": "medium"
     },
     {
-        "iata": "RBM",
-        "lon": "12.519722",
-        "iso": "DE",
-        "status": 1,
-        "name": "Straubing Airport",
-        "continent": "EU",
-        "type": "airport",
-        "lat": "48.901943",
-        "size": "small"
-    },
-    {
         "iata": "FDH",
         "lon": "9.523482",
         "iso": "DE",
@@ -30462,17 +30451,6 @@
         "size": "medium"
     },
     {
-        "iata": "MVV",
-        "lon": "6.65",
-        "iso": "FR",
-        "status": 1,
-        "name": null,
-        "continent": "EU",
-        "type": "airport",
-        "lat": "45.816666",
-        "size": "small"
-    },
-    {
         "iata": "OBS",
         "lon": "4.7",
         "iso": "FR",
@@ -30594,17 +30572,6 @@
         "size": "medium"
     },
     {
-        "iata": "MFX",
-        "lon": "6.566667",
-        "iso": "FR",
-        "status": 1,
-        "name": null,
-        "continent": "EU",
-        "type": "airport",
-        "lat": "45.416668",
-        "size": "small"
-    },
-    {
         "iata": "AUF",
         "lon": "3.5",
         "iso": "FR",
@@ -30656,17 +30623,6 @@
         "continent": "EU",
         "type": "airport",
         "size": "medium"
-    },
-    {
-        "iata": "CVF",
-        "lon": "6.634722",
-        "iso": "FR",
-        "status": 1,
-        "name": "Courchevel Airport",
-        "continent": "EU",
-        "type": "airport",
-        "lat": "45.396667",
-        "size": "small"
     },
     {
         "iata": "LYS",
@@ -32625,17 +32581,6 @@
         "size": "medium"
     },
     {
-        "iata": "AOT",
-        "lon": "7.3625",
-        "iso": "IT",
-        "status": 1,
-        "name": "Aosta Airport",
-        "continent": "EU",
-        "type": "airport",
-        "lat": "45.73861",
-        "size": "medium"
-    },
-    {
         "iata": "CUF",
         "lon": "7.6175",
         "iso": "IT",
@@ -33022,17 +32967,6 @@
         "size": "medium"
     },
     {
-        "iata": "MKA",
-        "lon": "12.716667",
-        "iso": "CZ",
-        "status": 1,
-        "name": null,
-        "continent": "EU",
-        "type": "airport",
-        "lat": "49.983334",
-        "size": "small"
-    },
-    {
         "iata": "OSR",
         "lon": "18.121284",
         "iso": "CZ",
@@ -33276,17 +33210,6 @@
         "type": "airport",
         "lat": "35.849777",
         "size": "large"
-    },
-    {
-        "iata": "HOH",
-        "lon": "9.7",
-        "iso": "AT",
-        "status": 1,
-        "name": "Hohenems-Dornbirn Airport",
-        "continent": "EU",
-        "type": "airport",
-        "lat": "47.38333",
-        "size": "small"
     },
     {
         "iata": "LOR",
@@ -33941,17 +33864,6 @@
         "size": "medium"
     },
     {
-        "iata": "BXO",
-        "lon": "8.383333",
-        "iso": "CH",
-        "status": 1,
-        "name": "Buochs Airport",
-        "continent": "EU",
-        "type": "airport",
-        "lat": "46.966667",
-        "size": "small"
-    },
-    {
         "iata": "ACO",
         "iso": "CH",
         "status": 0,
@@ -33998,17 +33910,6 @@
         "continent": "EU",
         "type": "airport",
         "lat": "47.483334",
-        "size": "medium"
-    },
-    {
-        "iata": "SMV",
-        "lon": "9.885556",
-        "iso": "CH",
-        "status": 1,
-        "name": "Samedan Airport",
-        "continent": "EU",
-        "type": "airport",
-        "lat": "46.53472",
         "size": "medium"
     },
     {
@@ -34913,17 +34814,6 @@
         "type": "airport",
         "lat": "48.666668",
         "size": "medium"
-    },
-    {
-        "iata": "LUE",
-        "lon": "19.666668",
-        "iso": "SK",
-        "status": 1,
-        "name": "Lu?enec Airport",
-        "continent": "EU",
-        "type": "airport",
-        "lat": "48.333332",
-        "size": "small"
     },
     {
         "iata": "PZY",
