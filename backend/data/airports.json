@@ -9498,17 +9498,6 @@
         "size": "medium"
     },
     {
-        "iata": "RBM",
-        "lon": "12.519722",
-        "iso": "DE",
-        "status": 1,
-        "name": "Straubing Airport",
-        "continent": "EU",
-        "type": "airport",
-        "lat": "48.901943",
-        "size": "small"
-    },
-    {
         "iata": "FDH",
         "lon": "9.523482",
         "iso": "DE",
@@ -30462,17 +30451,6 @@
         "size": "medium"
     },
     {
-        "iata": "MVV",
-        "lon": "6.65",
-        "iso": "FR",
-        "status": 1,
-        "name": null,
-        "continent": "EU",
-        "type": "airport",
-        "lat": "45.816666",
-        "size": "small"
-    },
-    {
         "iata": "OBS",
         "lon": "4.7",
         "iso": "FR",
@@ -32625,17 +32603,6 @@
         "size": "medium"
     },
     {
-        "iata": "AOT",
-        "lon": "7.3625",
-        "iso": "IT",
-        "status": 1,
-        "name": "Aosta Airport",
-        "continent": "EU",
-        "type": "airport",
-        "lat": "45.73861",
-        "size": "medium"
-    },
-    {
         "iata": "CUF",
         "lon": "7.6175",
         "iso": "IT",
@@ -33020,17 +32987,6 @@
         "type": "airport",
         "lat": "50.2",
         "size": "medium"
-    },
-    {
-        "iata": "MKA",
-        "lon": "12.716667",
-        "iso": "CZ",
-        "status": 1,
-        "name": null,
-        "continent": "EU",
-        "type": "airport",
-        "lat": "49.983334",
-        "size": "small"
     },
     {
         "iata": "OSR",
@@ -33939,17 +33895,6 @@
         "type": "airport",
         "lat": "46.911728",
         "size": "medium"
-    },
-    {
-        "iata": "BXO",
-        "lon": "8.383333",
-        "iso": "CH",
-        "status": 1,
-        "name": "Buochs Airport",
-        "continent": "EU",
-        "type": "airport",
-        "lat": "46.966667",
-        "size": "small"
     },
     {
         "iata": "ACO",
@@ -34913,17 +34858,6 @@
         "type": "airport",
         "lat": "48.666668",
         "size": "medium"
-    },
-    {
-        "iata": "LUE",
-        "lon": "19.666668",
-        "iso": "SK",
-        "status": 1,
-        "name": "Lu?enec Airport",
-        "continent": "EU",
-        "type": "airport",
-        "lat": "48.333332",
-        "size": "small"
     },
     {
         "iata": "PZY",

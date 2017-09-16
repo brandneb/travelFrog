@@ -37,4 +37,3 @@ def get_airport_coords(iata_code: str):
 def get_nearest_airport(lat, lon) -> IataCoord:
     node = _nearest_airport_index.search_nn((lat, lon))[0]
     return node.data
-
