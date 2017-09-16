@@ -51,7 +51,7 @@ async def destinations(request: web.Request):
             "forecast": phrase,
             "activity": "a beach day",
             "name": destination['destination']['CityName'],
-            "href": "https://giphy.com",
+            "href": destination['booking_url'],
             "price": destination['price']
         }
         result_json.append(entry)
