@@ -23,9 +23,19 @@ async def bene_endpoint(request: web.Request):
     print(f'Nearest airport: {nearest_airport}')
 
     cheapest_flight_destinations = await get_destinations(nearest_airport, 'Europe', 20)
-    pprint(cheapest_flight_destinations)
+    flight_destinations_coords = []
+    for destination in cheapest_flight_destinations:
+        coords = airports.get_airport_coords(destination['destination']['IataCode'])
+        name = destination['destination']['CityName']
+        price = destination['price']
+        # TODO get URL
+        flight_destinations_coords.append({'long': coords[0], 'lat': coords[1], 'name': name, 'href': '', 'price': price})
 
-    return web.json_response(text=str(cheapest_flight_destinations))
+    # TODO get weather information
+
+    pprint(flight_destinations_coords)
+
+    return web.json_response(text=str(flight_destinations_coords))
 
 
 def setup_routes(app):
