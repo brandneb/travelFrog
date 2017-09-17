@@ -1,4 +1,4 @@
-#TravelFrog
+# TravelFrog
 
 ![TravelFrog Logo](frontend/assets/frog.png)
 
