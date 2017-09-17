@@ -36,11 +36,6 @@
             "name": "Mykonos"
         },
         {
-            "latitude": 41.385064,
-            "longitude": 2.173403,
-            "name": "Barcelona"
-        },
-        {
             "latitude": 42.650661,
             "longitude": 18.094424,
             "name": "Dubrovnik"
@@ -89,31 +84,6 @@
         }
     ],
     "culture": [
-        {
-            "latitude": 48.856614,
-            "longitude": 2.352222,
-            "name": "Paris"
-        },
-        {
-            "latitude": 51.507351,
-            "longitude": -0.127758,
-            "name": "London"
-        },
-        {
-            "latitude": 40.416775,
-            "longitude": -3.70379,
-            "name": "Madrid"
-        },
-        {
-            "latitude": 52.520007,
-            "longitude": 13.404954,
-            "name": "Berlin"
-        },
-        {
-            "latitude": 52.370216,
-            "longitude": 4.895168,
-            "name": "Amsterdam"
-        },
         {
             "latitude": 41.902783,
             "longitude": 12.496366,
