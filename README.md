@@ -11,7 +11,6 @@ No problem, TravelFrog got you!
 Also no matter if you want to go skiing or just do a great city trip, within seconds TravelFrog will show you the perfect destinations and direct you to booking a flight?
 
 [TRY IT](http://169.51.12.70:31839)!
-## Screenshots
 
 ## Technical Details
 ### Backend
@@ -33,3 +32,6 @@ With the usage of our own assets, TravelFrog shows the traveler the activities a
 ### Hosting
 In order to automatically scale the frontend, as well as the backend, we hosted TravelFrog on [IBM Bluemix](https://console.bluemix.net).
 You can try it [here](http://169.51.12.70:31839). 
+
+## Screenshots
+![screenshots](frontend/assets/screenshots.gif)
