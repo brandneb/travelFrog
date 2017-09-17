@@ -269,7 +269,8 @@ function filterMatches() {
         return spot.rating;
     });
     ordered.sort();
-    var threshold = ordered[];
+    ordered.reverse();
+    var threshold = ordered[Math.min(15, ordered.length - 1)];
     
     for(var i = 0; i < activeWeatherSpots.length; i++) {
         spot = activeWeatherSpots[i];
@@ -278,7 +279,7 @@ function filterMatches() {
 
         if(active) {
             popupDom.removeClass('gone');
-        } else if(spot.activity != who) {
+        } else if(spot.rating < threshold) {
             popupDom.addClass('gone');
         } else {
             popupDom.removeClass('gone');
