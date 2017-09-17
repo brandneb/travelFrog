@@ -71,6 +71,14 @@
     background-color: #F9A258;
 }
 
+.leaflet-popup {
+    opacity: 0.8 !important;
+}
+
+.leaflet-popup.expanded, .leaflet-popup:hover {
+    opacity: 1 !important;
+}
+
 .leaflet-popup .leaflet-popup-content {
     width: 110px !important;
     height: 50px;
