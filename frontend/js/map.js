@@ -72,11 +72,10 @@ function refreshWeatherData() {
                 </div>
             </div>
             <div class="skyscanner">
-                <a class="waves-effect waves-light btn teal lighten-3" href="%offerlink" target="_blank">
-                <span class="detail-price">book for %price</span></a>
+                <a class="waves-effect waves-light btn grey lighten-1" href="%offerlink" target="_blank">Book for %price</a>
             </div>
             <div class="skyscanner">
-                <span class="detail-risk">Risk level: Safe travels, do you need &nbsp<a class="teal-text lighten-3" href="https://www.zurich.ch/en/private-customers/vehicles-and-travel/travel-insurance?WT.srch=1&WT.mc_id=z_rt_ch_se_gadw_gadw-869332546_gadw-g-_gadw-42271286045_gadw-203877147771_best%20travel%20insurance%20cover-b" target="_blank"> insurance?</a>
+                <span class="detail-risk">Risk level: Safe travels, do you need &nbsp<a class="teal-text lighten-3" href="%offerlink" target="_blank"> insurance?</a>
                 </span>
             </div>
             <table class="tight equal centered">
@@ -138,7 +137,7 @@ function refreshWeatherData() {
             temps: '',
             wind: '',
             recommend: activityTitle(spot),
-            offerlink: spot.href
+            offerlink: "https://www.zurich.ch/en/private-customers/vehicles-and-travel/travel-insurance?WT.srch=1&WT.mc_id=z_rt_ch_se_gadw_gadw-869332546_gadw-g-_gadw-42271286045_gadw-203877147771_best%20travel%20insurance%20cover-b"
         }
 
         function officialIcon(codeInt) {
@@ -164,21 +163,21 @@ function refreshWeatherData() {
             closeOnClick: false
         }).setLatLng([spot.lat, spot.lon]).setContent(item[0]);
         
-        item.click(function () {
-            var expanded = $(this).parents('.leaflet-popup').hasClass('expanded');
+        map.addLayer(popup);
+        
+        item.parents('.leaflet-popup').click(function () {
+            var expanded = $(this).hasClass('expanded');
             if(expanded) {
-                $(this).parents('.leaflet-popup').removeClass('expanded');
-                $(this).children('.condensed').show();
-                $(this).children('.detailed').hide();
+                $(this).removeClass('expanded');
+                $(this).find('.condensed').show();
+                $(this).find('.detailed').hide();
             } else {
                 popup.bringToFront();
-                $(this).children('.condensed').hide();
-                $(this).children('.detailed').fadeIn();
-                $(this).parents('.leaflet-popup').addClass('expanded');
+                $(this).find('.condensed').hide();
+                $(this).find('.detailed').fadeIn();
+                $(this).addClass('expanded');
             }
         });
-
-        map.addLayer(popup);
     });
 }
 
@@ -215,3 +214,8 @@ setTimeout(function() {
         requestData(); // request with default center
     }
 }, 3000);
+
+function collapseAll() {
+    console.log('hi');
+    $('.leaflet-popup.expanded').click();
+}

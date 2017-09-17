@@ -123,10 +123,10 @@ table.tight td, th {
 .detail-price {
     font-size: 130%;
 	margin-right: 15px;
-	width: 100%;
+	width: 100%
 }
 
-.skyscanner{
+.detail-risk{
 	margin-top: 5px;
 }
 
@@ -221,7 +221,7 @@ table.tight td, th {
 	background-image: url("../assets/travel.jpg");
 	background-repeat: no-repeat;
     background-size: cover;
-    min-height: 90%;
+    /* min-height: 90%; */
 }
 
 .btn.getaway {
