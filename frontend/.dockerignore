@@ -10,4 +10,3 @@ __pycache__
 .gitkeep
 .dockerignore
 Dockerfile
-nginx_default.conf
