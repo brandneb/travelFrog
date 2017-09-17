@@ -56,7 +56,7 @@ var weatherSpots = [];
 function refreshWeatherData() {
     $('.htmlmarker').remove();
     const html = `
-    <div class="htmlmarker">
+    <div class="htmlmarker %class">
         <div class="condensed">
             <img class="frog" src="/assets/%image"/>
             <div class="info">
@@ -138,7 +138,8 @@ function refreshWeatherData() {
             temps: '',
             wind: '',
             recommend: activityTitle(spot),
-            offerlink: spot.href
+            offerlink: spot.href,
+            class: spot.activity
         }
 
         function officialIcon(codeInt) {
@@ -219,4 +220,15 @@ setTimeout(function() {
 function collapseAll() {
     console.log('hi');
     $('.leaflet-popup.expanded').click();
+}
+
+function onlyShow(num){
+    var activities = [ "surfing", "beach", "culture", "camping", "hiking", "skiing"];
+    for(i = 0; i < activities.length; i++){
+        if(i == num || num == 6){
+            jQuery(".".concat(activities[i])).closest(".leaflet-popup").css('opacity', '1.0');
+        } else {
+            jQuery(".".concat(activities[i])).closest(".leaflet-popup").css('opacity', '0.0');
+        }
+    }
 }
