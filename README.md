@@ -15,7 +15,7 @@ Also no matter if you want to go skiing or just do a great city trip, within sec
 
 ## Technical Details
 ### Backend
-The server and the client functionality is based on [`aiohttp`](http://aiohttp.readthedocs.io).
+The server and the client functionality is based on [aiohttp](http://aiohttp.readthedocs.io).
 We provide an interface for the frontend to query different vacation destinations based on an origin destination.
 The weather information that is needed to rate and select destinations is queried from the [IBM Bluemix Weather Company API](https://console.bluemix.net/docs/services/Weather/index.html).
 The [*Skyscanner* API](http://business.skyscanner.net) provides us with flight information.
