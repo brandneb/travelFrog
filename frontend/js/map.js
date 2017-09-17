@@ -252,6 +252,7 @@ function filterActivities(menu, who) {
 
     var active = $(menu).parent().hasClass('active');
     $('li.filtermenu').removeClass('active');
+    $('#filtermatching').removeClass('active');
     if(!active) {
         $(menu).parent().addClass('active');
     }
