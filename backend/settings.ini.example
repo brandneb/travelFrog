@@ -3,3 +3,4 @@ BluemixAPIKey = 12345
 SkyscannerAPIKey = 12345
 WeatherRefreshInterval = 600
 WeatherParallelRequests = 100
+Port = 8080

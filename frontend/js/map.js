@@ -164,21 +164,21 @@ function refreshWeatherData() {
             closeOnClick: false
         }).setLatLng([spot.lat, spot.lon]).setContent(item[0]);
         
-        item.click(function () {
-            var expanded = $(this).parents('.leaflet-popup').hasClass('expanded');
+        map.addLayer(popup);
+        
+        item.parents('.leaflet-popup').click(function () {
+            var expanded = $(this).hasClass('expanded');
             if(expanded) {
-                $(this).parents('.leaflet-popup').removeClass('expanded');
-                $(this).children('.condensed').show();
-                $(this).children('.detailed').hide();
+                $(this).removeClass('expanded');
+                $(this).find('.condensed').show();
+                $(this).find('.detailed').hide();
             } else {
                 popup.bringToFront();
-                $(this).children('.condensed').hide();
-                $(this).children('.detailed').fadeIn();
-                $(this).parents('.leaflet-popup').addClass('expanded');
+                $(this).find('.condensed').hide();
+                $(this).find('.detailed').fadeIn();
+                $(this).addClass('expanded');
             }
         });
-
-        map.addLayer(popup);
     });
 }
 
@@ -215,3 +215,8 @@ setTimeout(function() {
         requestData(); // request with default center
     }
 }, 3000);
+
+function collapseAll() {
+    console.log('hi');
+    $('.leaflet-popup.expanded').click();
+}

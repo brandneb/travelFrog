@@ -221,7 +221,7 @@ table.tight td, th {
 	background-image: url("../assets/travel.jpg");
 	background-repeat: no-repeat;
     background-size: cover;
-    min-height: 90%;
+    /* min-height: 90%; */
 }
 
 .btn.getaway {
