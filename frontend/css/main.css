@@ -139,6 +139,10 @@ table.tight td, th {
 	width: 100%;
 }
 
+.detail-risk {
+    line-height: 24px;
+}
+
 .skyscanner{
 	margin-top: 5px;
 }
@@ -234,6 +238,8 @@ table.tight td, th {
 	background-image: url("../assets/travel.jpg");
 	background-repeat: no-repeat;
     background-size: cover;
+    background-position-x: center;
+    background-position-y: center;
     /* min-height: 90%; */
 }
 
