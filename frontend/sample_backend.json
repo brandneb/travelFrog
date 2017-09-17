@@ -11,7 +11,8 @@
     "activity": "beach",
     "name": "Munich",
     "href": "https://giphy.com",
-    "price": 535
+    "price": 535,
+    "rating": 3.5
 },
 {
     "lat": 47.367813, 
@@ -25,6 +26,7 @@
     "activity": "surfing",
     "name": "Scharnitz",
     "href": "https://giphy.com",
-    "price": 535
+    "price": 535,
+    "rating": 4.0
 }
 ]
