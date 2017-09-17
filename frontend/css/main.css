@@ -81,6 +81,7 @@
 
 .leaflet-popup.gone {
     opacity: 0 !important;
+    pointer-events: none;
 }
 
 .leaflet-popup .leaflet-popup-content {
