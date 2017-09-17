@@ -252,6 +252,7 @@ function filterActivities(menu, who) {
 
     var active = $(menu).parent().hasClass('active');
     $('li.filtermenu').removeClass('active');
+    $('#filtermatching').removeClass('active');
     if(!active) {
         $(menu).parent().addClass('active');
     }
@@ -274,6 +275,7 @@ function filterActivities(menu, who) {
 function filterMatches() {
     var active = $('#filtermatching').hasClass('active');
     $('#filtermatching').toggleClass('active');
+    $('li.filtermenu').removeClass('active');
 
     var ordered = activeWeatherSpots.map(function(spot) {
         return spot.rating;
