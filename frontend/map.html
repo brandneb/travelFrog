@@ -17,13 +17,15 @@
 <body>
   <ul id="dropdown1" class="dropdown-content">
     <li><a href="#" onclick="collapseAll();">Close All</a></li>
-    <li><a href="#" onclick="onlyShow(0)">Surfing</a></li>
-    <li><a href="#" onclick="onlyShow(1)">Beach</a></li>
-    <li><a href="#" onclick="onlyShow(2)">Culture</a></li>
-    <li><a href="#" onclick="onlyShow(3)">Camping</a></li>
-    <li><a href="#" onclick="onlyShow(4)">Hiking</a></li>
-    <li><a href="#" onclick="onlyShow(5)">Skiing</a></li>
-    <li><a href="#" onclick="onlyShow(6)">All Activities</a></li>
+    <li class="divider"></li>
+    <li class="filtermenu"><a href="#" onclick="filterActivities(this, 'surfing');">Surfing</a></li>
+    <li class="filtermenu"><a href="#" onclick="filterActivities(this, 'beach');">Beach</a></li>
+    <li class="filtermenu"><a href="#" onclick="filterActivities(this, 'culture');">Culture</a></li>
+    <li class="filtermenu"><a href="#" onclick="filterActivities(this, 'camping');">Camping</a></li>
+    <li class="filtermenu"><a href="#" onclick="filterActivities(this, 'hiking');">Hiking</a></li>
+    <li class="filtermenu"><a href="#" onclick="filterActivities(this, 'skiing');">Skiing</a></li>
+    <li class="divider"></li>
+    <li><a href="#!">three</a></li>
   </ul>
   <nav class="teal lighten-2" role="navigation" id="nav">
     <div class="nav-wrapper container">
