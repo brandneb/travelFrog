@@ -28,7 +28,7 @@ We put a lot of emphasis on our own design:
 The TravelFrog builds an emotional bridge to our customer and we used TravelFrog throughout the product.
 With the usage of our own assets, TravelFrog shows the traveler the activities and the weather conditions at specific destinations.
 
-![Surfing Frog](frontend/assets/surfing_frog.png =250x)
+![Surfing Frog](frontend/assets/surfing_frog_100.png) ![Culture Frog](frontend/assets/culture_frog_100.png) ![Rain Frog](frontend/assets/rain_frog_100.png)
 
 ### Hosting
 In order to automatically scale the frontend, as well as the backend, we hosted TravelFrog on [IBM Bluemix](https://console.bluemix.net).
