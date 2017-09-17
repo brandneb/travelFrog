@@ -40,8 +40,50 @@ def build_json_entry(weather, coords, name, url, price, activity):
         "href": url,
         "price": price
     }
+    rating = rate_entry(entry)
+    entry['rating'] = rating
     return entry
 
+def rate_entry(entry):
+    rating = 2.5
+    if entry['activity'] == 'surfing':
+        if any(['Sun' in f for f in entry['forecast']]):
+            rating += 0.3
+        if any(['Rain' in f or 'Shower' in f for f in entry['forecast']]):
+            rating -= 0.4
+        rating += sum(['Wind' in f for f in entry['forecast']]) * 0.5
+        rating += sum([w > 25 for w in entry['wind']]) * 0.5
+    elif entry['activity'] == 'beach':
+        if any([t > 23 for t in entry['temperature']]):
+            rating += 0.5
+        if any([t < 20 for t in entry['temperature']]):
+            rating -= 0.5
+        rating += sum(['Sun' in f for f in entry['forecast']]) * 0.5
+        rating -= sum(['Partially' in f for f in entry['forecast']]) * 0.1
+    elif entry['activity'] == 'culture':
+        rating = 4.0
+        rating += sum([t > 20 for t in entry['temperature']]) * 0.5
+        rating += sum(['Sun' in f for f in entry['forecast']]) * 0.5
+        rating -= sum(['Rain' in f or 'Shower' in f for f in entry['forecast']]) * 0.2
+    elif entry['activity'] == 'camping':
+        rating -= sum(['Rain' in f or 'Shower' in f for f in entry['forecast']])
+    elif entry['activity'] == 'hiking':
+        rating -= sum(['Rain' in f or 'Shower' in f for f in entry['forecast']]) * 0.5
+        rating += sum(['Sun' in f for f in entry['forecast']]) * 0.5
+    elif entry['activity'] == 'skiing':
+        if any([t > 15 for t in entry['temperature']]):
+            rating -= 0.4
+        if all([t < 10 for t in entry['temperature']]):
+            rating += 0.5
+        if all([t > 16 for t in entry['temperature']]):
+            rating -= 1.0
+        if any(['Snow' in f for f in entry['forecast']]):
+            rating += 1.0
+    if rating > 5.0:
+        rating = 5.0
+    if rating < 0.0:
+        rating = 0.0
+    return rating
 
 async def destinations(request: web.Request):
     print("got request")
