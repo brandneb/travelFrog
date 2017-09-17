@@ -20,7 +20,7 @@ The weather information that is needed to rate and select destinations is querie
 The [*Skyscanner* API](http://business.skyscanner.net) provides us with flight information.
 
 ### Frontend and Design
-The Frontend design is based on [Materialized](http://materializecss.com) and [jQuery](http://jquery.com) as a JavaScript library is used.
+The Frontend design is based on [Materialize](http://materializecss.com) and [jQuery](http://jquery.com) as a JavaScript library is used.
 In order to represent the map view, we relied on the [Leaflet](http://leafletjs.com).
 
 We put a lot of emphasis on our own design:
