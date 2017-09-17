@@ -51,6 +51,14 @@ function activityTitle(spot) {
     return 'Visit ' + location;
 }
 
+function activityInsurance(activity) {
+    if(activity == "skiing" || activity == "surfing") {
+        return '<i class="material-icons">warning</i>Make sure to get &nbsp<a class="teal-text lighten-3" href="https://www.zurich.ch/en/private-customers/vehicles-and-travel/travel-insurance?WT.srch=1&WT.mc_id=z_rt_ch_se_gadw_gadw-869332546_gadw-g-_gadw-42271286045_gadw-203877147771_best%20travel%20insurance%20cover-b" target="_blank">insurance</a>&nbsp when you go ' + activity + '.';
+    }
+    return 'Risk level: Safe travels, do you need &nbsp<a class="teal-text lighten-3" href="https://www.zurich.ch/en/private-customers/vehicles-and-travel/travel-insurance?WT.srch=1&WT.mc_id=z_rt_ch_se_gadw_gadw-869332546_gadw-g-_gadw-42271286045_gadw-203877147771_best%20travel%20insurance%20cover-b" target="_blank"> insurance?</a>';
+}
+
+
 var weatherSpots = [];
 var activeWeatherSpots = [];
 var popups = [];
@@ -83,7 +91,8 @@ function refreshWeatherData() {
                 <span class="detail-price">book for %price</span></a>
             </div>
             <div class="skyscanner">
-                <span class="detail-risk">Risk level: Safe travels, do you need &nbsp<a class="teal-text lighten-3" href="https://www.zurich.ch/en/private-customers/vehicles-and-travel/travel-insurance?WT.srch=1&WT.mc_id=z_rt_ch_se_gadw_gadw-869332546_gadw-g-_gadw-42271286045_gadw-203877147771_best%20travel%20insurance%20cover-b" target="_blank"> insurance?</a>
+                <span class="detail-risk">
+                    %insurance
                 </span>
             </div>
             <table class="tight equal centered">
@@ -162,6 +171,7 @@ function refreshWeatherData() {
             props.temps += ('<td>' + (i >= ncols ? '' : `<div class="bottle-outer temp"><div class="bottle-inner" style="height: ${Math.min(100, spot.temperature[i] / maxTemperature * 100)}%"></div><div class="valign-wrapper align-center vfill">${spot.temperature[i]}°C</div></div>`) + '</td>');
             props.wind  += ('<td>' + (i >= ncols ? '' : `<div class="bottle-outer wind"><div class="bottle-inner" style="height: ${Math.min(100, spot.wind[i] / maxWindSpeed * 100)}%"></div><div class="valign-wrapper align-center vfill">${spot.wind[i]}km/h</div></div>`) + "</td>");
         }
+        props.insurance = activityInsurance(spot.activity)
 
         var itemhtml = factory(props);
         var item = $(itemhtml);
